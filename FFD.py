@@ -1,5 +1,126 @@
 import numpy as np
 
+# def MTL(fdir,filename):
+#     contents = {}
+#     mtl = None
+#     for line in open(fdir+filename, "r"):
+#         if line.startswith('#'): continue
+#         values = line.split()
+#         if not values: continue
+#         if values[0] == 'newmtl':
+#             mtl = contents[values[1]] = {}
+#         elif mtl is None:
+#             raise ValueError( "mtl file doesn't start with newmtl stmt" )
+#         elif values[0] == 'map_Kd':
+#             # load the texture referred to by this declaration
+#             mtl[values[0]] = values[1]
+#             surf = pygame.image.load(fdir+mtl['map_Kd'])
+#             image = pygame.image.tostring(surf, 'RGBA', 1)
+#             ix, iy = surf.get_rect().size
+#             texid = mtl['texture_Kd'] = glGenTextures(1)
+#             glBindTexture(GL_TEXTURE_2D, texid)
+#             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,
+#                 GL_LINEAR)
+#             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,
+#                 GL_LINEAR)
+#             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, ix, iy, 0, GL_RGBA,
+#                 GL_UNSIGNED_BYTE, image)
+#         else:
+#             #mtl[values[0]] = map(float, values[1:])
+#
+#             mtl[values[0]] = [ float(x) for x in values[1:4]]
+#     return contents
+
+class OBJ:
+    def __init__(self, filename, swapyz=False):
+        """Loads a Wavefront OBJ file. """
+        self.vertices = []
+        self.normals = []
+        self.texcoords = []
+        self.faces = []
+        self.mtl=None
+        material = None
+        for line in open(filename, "r"):
+            if line.startswith('#'): continue
+            values = line.split()
+            if not values: continue
+            if values[0] == 'v':
+                v=[ float(x) for x in values[1:4]]
+                if swapyz:
+                    v = v[0], v[2], v[1]
+                self.vertices.append(v)
+            elif values[0] == 'vn':
+                v=[ float(x) for x in values[1:4]]
+                if swapyz:
+                    v = v[0], v[2], v[1]
+                self.normals.append(v)
+            elif values[0] == 'vt':
+                v = [float(x) for x in values[1:3]]
+                self.texcoords.append(v)
+            elif values[0] in ('usemtl', 'usemat'):
+                material = values[1]
+            elif values[0] == 'mtllib':
+                self.mtl = [filename,values[1]]
+            elif values[0] == 'f':
+                face = []
+                texcoords = []
+                norms = []
+                for v in values[1:]:
+                    w = v.split('/')
+                    face.append(int(w[0]))
+                    if len(w) >= 2 and len(w[1]) > 0:
+                        texcoords.append(int(w[1]))
+                    else:
+                        texcoords.append(0)
+                    if len(w) >= 3 and len(w[2]) > 0:
+                        norms.append(int(w[2]))
+                    else:
+                        norms.append(0)
+                self.faces.append((face, norms, texcoords, material))
+
+    def create_bbox(self):
+        # self.vertices is not None
+        ps=np.array(self.vertices)
+        vmin=ps.min(axis=0)
+        vmax=ps.max(axis=0)
+
+        self.bbox_center=(vmax+vmin)/2
+        self.bbox_half_r=np.max(vmax-vmin)/2
+
+
+    # def create_gl_list(self):
+    #     if self.mtl is not None:
+    #         self.mtl = MTL( *self.mtl )
+    #
+    #     self.gl_list = glGenLists(1)
+    #     glNewList(self.gl_list, GL_COMPILE)
+    #     glEnable(GL_TEXTURE_2D)
+    #     glFrontFace(GL_CCW)
+        #glCullFace(GL_BACK)
+        #glEnable(GL_CULL_FACE)
+
+        # for face in self.faces:
+        #     vertices, normals, texture_coords, material = face
+        #
+        #     mtl = self.mtl[material]
+        #     if 'texture_Kd' in mtl:
+        #         # use diffuse texmap
+        #         glBindTexture(GL_TEXTURE_2D, mtl['texture_Kd'])
+        #     else:
+        #         # just use diffuse colour
+        #         #print(mtl['Kd'],"----")
+        #         glColor(*mtl['Kd'])
+        #
+        #     glBegin(GL_POLYGON)
+        #     for i in range(len(vertices)):
+        #         if normals[i] > 0:
+        #             glNormal3fv(self.normals[normals[i] - 1])
+        #         if texture_coords[i] > 0:
+        #             glTexCoord2fv(self.texcoords[texture_coords[i] - 1])
+        #         glVertex3fv(self.vertices[vertices[i] - 1])
+        #     glEnd()
+        # glDisable(GL_TEXTURE_2D)
+        # glEndList()
 
 class control_point_class(object):
     def __init__(self, x, y, z):
@@ -36,16 +157,16 @@ class object_point_class(object):
 
 class FFD(object):
 
-    def __init__(self,object_points,CP_X_NUM=20,CP_Y_NUM=30,CP_Z_NUM=40):
+    def __init__(self,object_points,CP_X_NUM,CP_Y_NUM,CP_Z_NUM,min_x,max_x,min_y,max_y,min_z,max_z):
         self.CP_X_NUM = CP_X_NUM
         self.CP_Y_NUM = CP_Y_NUM
         self.CP_Z_NUM = CP_Z_NUM
-        self.CP_MIN_X = TODO
-        self.CP_MAX_X = TODO
-        self.CP_MIN_Y = TODO
-        self.CP_MAX_Y = TODO
-        self.CP_MIN_Z = TODO
-        self.CP_MAX_Z = TODO
+        self.CP_MIN_X = min_x
+        self.CP_MAX_X = max_x
+        self.CP_MIN_Y = min_y
+        self.CP_MAX_Y = max_y
+        self.CP_MIN_Z = min_z
+        self.CP_MAX_Z = max_z
         self.control_points_list = [None] * self.CP_X_NUM
         self.cp2op_list = [None] * self.CP_X_NUM
         for x in range(self.CP_X_NUM):
@@ -55,22 +176,23 @@ class FFD(object):
             for y in range(self.CP_Y_NUM):
                 self.control_points_list[x][y] = [None] * self.CP_Z_NUM
                 self.cp2op_list[x][y] = [None] * self.CP_Z_NUM
-        for x in range(self.CP_X_NUM):
-            for y in range(self.CP_Y_NUM):
-                for z in range(self.CP_Z_NUM):
+        for x in range(self.CP_X_NUM+1):
+            for y in range(self.CP_Y_NUM+1):
+                for z in range(self.CP_Z_NUM+1):
                     self.control_points_list[x][y][z] = control_point_class(
                         x=int(x * self.CP_MAX_X + (self.CP_X_NUM- 1 - x) * self.CP_MIN_X) / (self.CP_X_NUM - 1),
                         y=int(y * self.CP_MAX_Y + (self.CP_Y_NUM - 1 - y) * self.CP_MIN_Y) / (self.CP_Y_NUM - 1),
                         z=int(z * self.CP_MAX_Z  + (self.CP_Z_NUM - 1 - z) * self.CP_MIN_Z) / (self.CP_Z_NUM - 1))
         for i in range(len(object_points)):
             [x, y, z] = object_points[i]
-            u = int((x - self.CP_MIN_X) / self.CP_X_NUM)
-            v = int((y - self.CP_MIN_Y) / self.CP_Y_NUM)
-            w = int((z - self.CP_MIN_Z) / self.CP_Z_NUM)
+            u = int((x - self.CP_MIN_X) / (self.CP_X_NUM-1))
+            v = int((y - self.CP_MIN_Y) / (self.CP_Y_NUM-1))
+            w = int((z - self.CP_MIN_Z) / (self.CP_Z_NUM-1))
+            print(u,v,w)
             point = object_point_class(x, y, z)
-            point.setU((x - self.CP_MIN_X) / self.CP_X_NUM-u)
-            point.setV((y - self.CP_MIN_Y) / self.CP_Y_NUM-v)
-            point.setW((z - self.CP_MIN_Z) / self.CP_Z_NUM-w)
+            point.setU((x - self.CP_MIN_X) / (self.CP_X_NUM-1)-u)
+            point.setV((y - self.CP_MIN_Y) / (self.CP_Y_NUM-1)-v)
+            point.setW((z - self.CP_MIN_Z) / (self.CP_Z_NUM-1)-w)
             if self.cp2op_list[u][v][w] == None:
                 self.cp2op_list[u][v][w] = [point]
             else:
@@ -111,8 +233,18 @@ class FFD(object):
                     for point in self.cp2op_list[i][j][k]:
                         self.T_local(point,i,j,k)
 
-
-
+zxh_ape = OBJ(filename='zxh-ape.obj')
+object_points = [face[0] for face in zxh_ape.faces]
+min_x = min([point[0] for point in object_points])
+max_x = max([point[0] for point in object_points])
+min_y = min([point[1] for point in object_points])
+max_y = max([point[1] for point in object_points])
+min_z = min([point[2] for point in object_points])
+max_z = max([point[2] for point in object_points])
+ffd = FFD(object_points=object_points,CP_X_NUM=20,CP_Y_NUM=30,CP_Z_NUM=40,
+          min_x=min_x,min_y=min_y,min_z=min_z,
+          max_x=max_x,max_y=max_y,max_z=max_z)
+ffd.update_object(changed_control_point=[1,1,1],new_control_point=[2,2,2])
 
 
 
