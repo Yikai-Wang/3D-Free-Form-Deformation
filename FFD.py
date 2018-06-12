@@ -1,150 +1,117 @@
 import numpy as np
 
-SPACING_DELTA = 10
-CONTROL_POINT_NUMBER_X= 20
-CONTROL_POINT_NUMBER_Y= 30
-CONTROL_POINT_NUMBER_Z= 40
-OBJECT = np.random.randint(0,100,size=[60,60,60])
-object_point_min_x = 1
-object_point_max_x = 2
-object_point_min_y = 1
-object_point_max_y = 2
-object_point_min_z = 1
-object_point_max_z = 2
-control_point_min_x = 1
-control_point_max_x = 2
-control_point_min_y = 1
-control_point_max_y = 2
-control_point_min_z = 1
-control_point_max_z = 2
 
 class control_point_class(object):
     def __init__(self, x, y, z):
         self.x = x
         self.y = y
         self.z = z
+    def getX(self): return self.x
+    def getY(self): return self.y
+    def getZ(self): return self.z
+    def setX(self, x): self.x = x
+    def setY(self, y): self.y = y
+    def setZ(self, z): self.z = z
 
-    def getX(self):
-        return self.x
-
-    def getY(self):
-        return self.y
-
-    def getZ(self):
-        return self.z
-
-    def setX(self, x):
-        self.x = x
-
-    def setY(self, y):
-        self.y = y
-
-    def setZ(self, z):
-        self.z = z
-
-class object_point(object):
-
+class object_point_class(object):
     def __init__(self, x, y, z):
         self.x = x
         self.y = y
         self.z = z
-        self.t = 0
         self.u = 0
         self.v = 0
+        self.w = 0
+    def getX(self): return self.x
+    def getY(self): return self.y
+    def getZ(self): return self.z
+    def getU(self): return self.u
+    def getV(self): return self.v
+    def getW(self): return self.w
+    def setU(self, u): self.u = u
+    def setV(self, v): self.v = v
+    def setW(self, w): self.w = w
+    def setX(self, x): self.x = x
+    def setY(self, y): self.y = y
+    def setZ(self, z): self.z = z
 
-    def getX(self):
-        return self.x
+class FFD(object):
 
-    def getY(self):
-        return self.y
+    def __init__(self,object_points,CP_X_NUM=20,CP_Y_NUM=30,CP_Z_NUM=40):
+        self.CP_X_NUM = CP_X_NUM
+        self.CP_Y_NUM = CP_Y_NUM
+        self.CP_Z_NUM = CP_Z_NUM
+        self.CP_MIN_X = TODO
+        self.CP_MAX_X = TODO
+        self.CP_MIN_Y = TODO
+        self.CP_MAX_Y = TODO
+        self.CP_MIN_Z = TODO
+        self.CP_MAX_Z = TODO
+        self.control_points_list = [None] * self.CP_X_NUM
+        self.cp2op_list = [None] * self.CP_X_NUM
+        for x in range(self.CP_X_NUM):
+            self.control_points_list[x] = [None] * self.CP_Y_NUM
+            self.cp2op_list[x] = [None] * self.CP_Y_NUM
+        for x in range(self.CP_X_NUM):
+            for y in range(self.CP_Y_NUM):
+                self.control_points_list[x][y] = [None] * self.CP_Z_NUM
+                self.cp2op_list[x][y] = [None] * self.CP_Z_NUM
+        for x in range(self.CP_X_NUM):
+            for y in range(self.CP_Y_NUM):
+                for z in range(self.CP_Z_NUM):
+                    self.control_points_list[x][y][z] = control_point_class(
+                        x=int(x * self.CP_MAX_X + (self.CP_X_NUM- 1 - x) * self.CP_MIN_X) / (self.CP_X_NUM - 1),
+                        y=int(y * self.CP_MAX_Y + (self.CP_Y_NUM - 1 - y) * self.CP_MIN_Y) / (self.CP_Y_NUM - 1),
+                        z=int(z * self.CP_MAX_Z  + (self.CP_Z_NUM - 1 - z) * self.CP_MIN_Z) / (self.CP_Z_NUM - 1))
+        for i in range(len(object_points)):
+            [x, y, z] = object_points[i]
+            u = int((x - self.CP_MIN_X) / self.CP_X_NUM)
+            v = int((y - self.CP_MIN_Y) / self.CP_Y_NUM)
+            w = int((z - self.CP_MIN_Z) / self.CP_Z_NUM)
+            point = object_point_class(x, y, z)
+            point.setU((x - self.CP_MIN_X) / self.CP_X_NUM-u)
+            point.setV((y - self.CP_MIN_Y) / self.CP_Y_NUM-v)
+            point.setW((z - self.CP_MIN_Z) / self.CP_Z_NUM-w)
+            if self.cp2op_list[u][v][w] == None:
+                self.cp2op_list[u][v][w] = [point]
+            else:
+                self.cp2op_list[u][v][w].append(point)
 
-    def getZ(self):
-        return self.z
+    def B(self,i, u):
+        if i == 0:
+            return (1 - u) ** 3 / 6
+        elif i == 1:
+            return (3 * u ** 3 - 6 * u ** 2 + 4) / 6
+        elif i == 2:
+            return (-3 * u ** 3 + 3 * u ** 2 + 3 * u + 1) / 6
+        elif i == 3:
+            return u ** 3 / 6
 
-    def getT(self):
-        return self.t
+    def T_local(self,object_point,i,j,k):
+        result = [0, 0, 0]
+        for l in range(4):
+            for m in range(4):
+                for n in range(4):
+                    tmp = self.B(l, object_point.getU()) * self.B(m, object_point.getV()) * self.B(n, object_point.getW())
+                    result[0] += tmp * self.control_points_list[i + l-1][j + m-1][k + n-1].getX()
+                    result[1] += tmp * self.control_points_list[i + l-1][j + m-1][k + n-1].getY()
+                    result[2] += tmp * self.control_points_list[i + l-1][j + m-1][k + n-1].getZ()
+        object_point.setX(result[0])
+        object_point.setY(result[1])
+        object_point.setZ(result[2])
+        return
 
-    def getU(self):
-        return self.u
-
-    def getV(self):
-        return self.v
-
-    def setT(self, t):
-        self.t = t
-
-    def setU(self, u):
-        self.u = u
-
-    def setV(self, v):
-        self.v = v
-
-    def setX(self, x):
-        self.x = x
-
-    def setY(self, y):
-        self.y = y
-
-    def setZ(self, z):
-        self.z = z
-
-def computeTUVData(object_points_array,control_point_min_x,control_point_max_x,control_point_min_y,control_point_max_y,
-                   control_point_min_z,control_point_max_z):
-    for point in object_points_array:
-        t = int((point.getX() - control_point_min_x)/(control_point_max_x - control_point_min_x))
-        u = int((point.getY() - control_point_min_y)/(control_point_max_y-control_point_min_y))
-        v = int((point.getZ() - control_point_min_z)/(control_point_max_z-control_point_min_z))
-        point.setT(t)
-        point.setU(u)
-        point.setV(v)
-    return
-
-def B(i,u):
-    if i==0:
-        return (1-u)**3/6
-    elif i==1:
-        return (3*u**3-6*u**2+4)/6
-    elif i==2:
-        return (-3*u**3+3*u**2+3*u+1)/6
-    elif i==3:
-        return u**3/6
-
-def T_local(x,y,z):
-    result = [0,0,0]
-    i = int((x-object_point_min_x)/CONTROL_POINT_NUMBER_X)-1
-    j = int((y - object_point_min_y) / CONTROL_POINT_NUMBER_Y) - 1
-    k = int((z - object_point_min_z) / CONTROL_POINT_NUMBER_Z) - 1
-    u = (x-object_point_min_x)/CONTROL_POINT_NUMBER_X-int((x-object_point_min_x)/CONTROL_POINT_NUMBER_X)
-    v = (y - object_point_min_y) / CONTROL_POINT_NUMBER_Y - int((y - object_point_min_y) / CONTROL_POINT_NUMBER_Y)
-    w = (z - object_point_min_z) / CONTROL_POINT_NUMBER_Z - int((z - object_point_min_z) / CONTROL_POINT_NUMBER_Z)
-    for l in range(4):
-        for m in range(4):
-            for n in range(4):
-                tmp = B(l,u)*B(m,v)*B(n,w)
-                result[0] += tmp*control_points_list[i+l][j+m][k+n].getX()
-                result[1] += tmp * control_points_list[i + l][j + m][k + n].getY()
-                result[2] += tmp * control_points_list[i + l][j + m][k + n].getZ()
-    return result
-
-
-control_points_list = [None]*CONTROL_POINT_NUMBER_X
-for x in range(CONTROL_POINT_NUMBER_X):
-    control_points_list[x] = [None]*CONTROL_POINT_NUMBER_Y
-for x in range(CONTROL_POINT_NUMBER_X):
-    for y in range(CONTROL_POINT_NUMBER_Y):
-        control_points_list[x][y] = [None]*CONTROL_POINT_NUMBER_Z
-for x in range(CONTROL_POINT_NUMBER_X):
-    for y in range(CONTROL_POINT_NUMBER_Y):
-        for z in range(CONTROL_POINT_NUMBER_Z):
-            control_points_list[x][y][z] = control_point_class(x=int(x*control_point_max_x+(CONTROL_POINT_NUMBER_X-1-x)*control_point_min_x)/(CONTROL_POINT_NUMBER_X-1),
-                                                               y=int(y*control_point_max_y+(CONTROL_POINT_NUMBER_Y-1-y)*control_point_min_y)/(CONTROL_POINT_NUMBER_Y-1),
-                                                               z=int(z*control_point_max_z+(CONTROL_POINT_NUMBER_Z-1-z)*control_point_min_z)/(CONTROL_POINT_NUMBER_Z-1))
-
-
-
-
-
-
+    # Change one control point, we will get the [u,v,w] of the control point.
+    def update_object(self,changed_control_point,new_control_point):
+        [u, v, w] = changed_control_point
+        self.control_points_list[u][v][w].setX(new_control_point[0])
+        self.control_points_list[u][v][w].setY(new_control_point[1])
+        self.control_points_list[u][v][w].setZ(new_control_point[2])
+        for i in range(u - 1, u + 3):
+            for j in range(v - 1, v + 3):
+                for k in range(w - 1, w + 3):
+                    for point in self.cp2op_list[i][j][k]:
+                        self.T_local(point,i,j,k)
+        return
 
 
 
@@ -157,6 +124,21 @@ for x in range(CONTROL_POINT_NUMBER_X):
 
 
 
+
+
+
+
+
+# def computeTUVData(object_points_array,control_point_min_x,control_point_max_x,control_point_min_y,control_point_max_y,
+#                    control_point_min_z,control_point_max_z):
+#     for point in object_points_array:
+#         t = int((point.getX() - control_point_min_x)/(control_point_max_x - control_point_min_x))
+#         u = int((point.getY() - control_point_min_y)/(control_point_max_y-control_point_min_y))
+#         v = int((point.getZ() - control_point_min_z)/(control_point_max_z-control_point_min_z))
+#         point.setT(t)
+#         point.setU(u)
+#         point.setV(v)
+#     return
 
 
 # def NewtonSolve(N, initialGuess , systemOfFunctions):
