@@ -1,5 +1,23 @@
 import numpy as np
 
+SPACING_DELTA = 10
+CONTROL_POINT_NUMBER_X= 20
+CONTROL_POINT_NUMBER_Y= 30
+CONTROL_POINT_NUMBER_Z= 40
+OBJECT = np.random.randint(0,100,size=[60,60,60])
+object_point_min_x = 1
+object_point_max_x = 2
+object_point_min_y = 1
+object_point_max_y = 2
+object_point_min_z = 1
+object_point_max_z = 2
+control_point_min_x = 1
+control_point_max_x = 2
+control_point_min_y = 1
+control_point_max_y = 2
+control_point_min_z = 1
+control_point_max_z = 2
+
 class control_point_class(object):
     def __init__(self, x, y, z):
         self.x = x
@@ -108,23 +126,7 @@ def T_local(x,y,z):
                 result[2] += tmp * control_points_list[i + l][j + m][k + n].getZ()
     return result
 
-SPACING_DELTA = 10
-CONTROL_POINT_NUMBER_X= 20
-CONTROL_POINT_NUMBER_Y= 30
-CONTROL_POINT_NUMBER_Z= 40
-OBJECT = np.random.randint(0,100,size=[60,60,60])
-object_point_min_x = 1
-object_point_max_x = 2
-object_point_min_y = 1
-object_point_max_y = 2
-object_point_min_z = 1
-object_point_max_z = 2
-control_point_min_x = 1
-control_point_max_x = 2
-control_point_min_y = 1
-control_point_max_y = 2
-control_point_min_z = 1
-control_point_max_z = 2
+
 control_points_list = [None]*CONTROL_POINT_NUMBER_X
 for x in range(CONTROL_POINT_NUMBER_X):
     control_points_list[x] = [None]*CONTROL_POINT_NUMBER_Y
