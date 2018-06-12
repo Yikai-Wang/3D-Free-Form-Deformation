@@ -98,7 +98,6 @@ class FFD(object):
         object_point.setX(result[0])
         object_point.setY(result[1])
         object_point.setZ(result[2])
-        return
 
     # Change one control point, we will get the [u,v,w] of the control point.
     def update_object(self,changed_control_point,new_control_point):
@@ -111,7 +110,6 @@ class FFD(object):
                 for k in range(w - 1, w + 3):
                     for point in self.cp2op_list[i][j][k]:
                         self.T_local(point,i,j,k)
-        return
 
 
 
