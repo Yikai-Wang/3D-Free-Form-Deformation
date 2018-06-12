@@ -161,42 +161,46 @@ class FFD(object):
         self.CP_X_NUM = CP_X_NUM
         self.CP_Y_NUM = CP_Y_NUM
         self.CP_Z_NUM = CP_Z_NUM
-        self.CP_MIN_X = min_x
-        self.CP_MAX_X = max_x
-        self.CP_MIN_Y = min_y
-        self.CP_MAX_Y = max_y
-        self.CP_MIN_Z = min_z
-        self.CP_MAX_Z = max_z
+        self.CP_MIN_X = min_x-1
+        self.CP_MAX_X = max_x+1
+        self.CP_MIN_Y = min_y-1
+        self.CP_MAX_Y = max_y+1
+        self.CP_MIN_Z = min_z-1
+        self.CP_MAX_Z = max_z+1
         self.control_points_list = [None] * self.CP_X_NUM
         self.cp2op_list = [None] * self.CP_X_NUM
+        self.cp2op_id = [None] * self.CP_X_NUM
         for x in range(self.CP_X_NUM):
             self.control_points_list[x] = [None] * self.CP_Y_NUM
             self.cp2op_list[x] = [None] * self.CP_Y_NUM
+            self.cp2op_id[x] = [None] * self.CP_Y_NUM
         for x in range(self.CP_X_NUM):
             for y in range(self.CP_Y_NUM):
                 self.control_points_list[x][y] = [None] * self.CP_Z_NUM
                 self.cp2op_list[x][y] = [None] * self.CP_Z_NUM
-        for x in range(self.CP_X_NUM+1):
-            for y in range(self.CP_Y_NUM+1):
-                for z in range(self.CP_Z_NUM+1):
+                self.cp2op_id[x][y] = [None] * self.CP_Z_NUM
+        for x in range(self.CP_X_NUM):
+            for y in range(self.CP_Y_NUM):
+                for z in range(self.CP_Z_NUM):
                     self.control_points_list[x][y][z] = control_point_class(
                         x=int(x * self.CP_MAX_X + (self.CP_X_NUM- 1 - x) * self.CP_MIN_X) / (self.CP_X_NUM - 1),
                         y=int(y * self.CP_MAX_Y + (self.CP_Y_NUM - 1 - y) * self.CP_MIN_Y) / (self.CP_Y_NUM - 1),
                         z=int(z * self.CP_MAX_Z  + (self.CP_Z_NUM - 1 - z) * self.CP_MIN_Z) / (self.CP_Z_NUM - 1))
         for i in range(len(object_points)):
             [x, y, z] = object_points[i]
-            u = int((x - self.CP_MIN_X) / (self.CP_X_NUM-1))
-            v = int((y - self.CP_MIN_Y) / (self.CP_Y_NUM-1))
-            w = int((z - self.CP_MIN_Z) / (self.CP_Z_NUM-1))
-            print(u,v,w)
+            u = int((x - self.CP_MIN_X) / self.CP_X_NUM)
+            v = int((y - self.CP_MIN_Y) / self.CP_Y_NUM)
+            w = int((z - self.CP_MIN_Z) / self.CP_Z_NUM)
             point = object_point_class(x, y, z)
-            point.setU((x - self.CP_MIN_X) / (self.CP_X_NUM-1)-u)
-            point.setV((y - self.CP_MIN_Y) / (self.CP_Y_NUM-1)-v)
-            point.setW((z - self.CP_MIN_Z) / (self.CP_Z_NUM-1)-w)
+            point.setU((x - self.CP_MIN_X) / self.CP_X_NUM-u)
+            point.setV((y - self.CP_MIN_Y) / self.CP_Y_NUM-v)
+            point.setW((z - self.CP_MIN_Z) / self.CP_Z_NUM-w)
             if self.cp2op_list[u][v][w] == None:
                 self.cp2op_list[u][v][w] = [point]
+                self.cp2op_id[u][v][w] = [i]
             else:
                 self.cp2op_list[u][v][w].append(point)
+                self.cp2op_id[u][v][w].append(i)
 
     def B(self,i, u):
         if i == 0:
@@ -230,8 +234,9 @@ class FFD(object):
         for i in range(u - 1, u + 3):
             for j in range(v - 1, v + 3):
                 for k in range(w - 1, w + 3):
-                    for point in self.cp2op_list[i][j][k]:
-                        self.T_local(point,i,j,k)
+                    if self.cp2op_list[i][j][k] != None:
+                        for point in self.cp2op_list[i][j][k]:
+                            self.T_local(point,i,j,k)
 
 zxh_ape = OBJ(filename='zxh-ape.obj')
 object_points = [face[0] for face in zxh_ape.faces]
@@ -241,10 +246,10 @@ min_y = min([point[1] for point in object_points])
 max_y = max([point[1] for point in object_points])
 min_z = min([point[2] for point in object_points])
 max_z = max([point[2] for point in object_points])
-ffd = FFD(object_points=object_points,CP_X_NUM=20,CP_Y_NUM=30,CP_Z_NUM=40,
+ffd = FFD(object_points=object_points,CP_X_NUM=300,CP_Y_NUM=350,CP_Z_NUM=400,
           min_x=min_x,min_y=min_y,min_z=min_z,
           max_x=max_x,max_y=max_y,max_z=max_z)
-ffd.update_object(changed_control_point=[1,1,1],new_control_point=[2,2,2])
+ffd.update_object(changed_control_point=[145,124,109],new_control_point=[144,123,108])
 
 
 
