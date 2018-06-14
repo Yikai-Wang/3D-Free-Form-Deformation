@@ -45,6 +45,7 @@ class OBJ:
             values = line.split()
             if not values: continue
             if values[0] == 'v':
+                #v=[ float(x) for x in values[1:4]]
                 v=[ float(x) for x in values[1:4]]
                 if swapyz:
                     v = v[0], v[2], v[1]
@@ -239,17 +240,17 @@ class FFD(object):
                             self.T_local(point,i,j,k)
 
 zxh_ape = OBJ(filename='zxh-ape.obj')
-object_points = [face[0] for face in zxh_ape.faces]
-min_x = min([point[0] for point in object_points])
-max_x = max([point[0] for point in object_points])
-min_y = min([point[1] for point in object_points])
-max_y = max([point[1] for point in object_points])
-min_z = min([point[2] for point in object_points])
-max_z = max([point[2] for point in object_points])
-ffd = FFD(object_points=object_points,CP_X_NUM=300,CP_Y_NUM=350,CP_Z_NUM=400,
-          min_x=min_x,min_y=min_y,min_z=min_z,
-          max_x=max_x,max_y=max_y,max_z=max_z)
-ffd.update_object(changed_control_point=[145,124,109],new_control_point=[144,123,108])
+object_points = [face for face in zxh_ape.vertices]
+#min_x = min([point[0] for point in object_points])
+#max_x = max([point[0] for point in object_points])
+#min_y = min([point[1] for point in object_points])
+#max_y = max([point[1] for point in object_points])
+#min_z = min([point[2] for point in object_points])
+#max_z = max([point[2] for point in object_points])
+#ffd = FFD(object_points=object_points,CP_X_NUM=300,CP_Y_NUM=350,CP_Z_NUM=400,
+#          min_x=min_x,min_y=min_y,min_z=min_z,
+#          max_x=max_x,max_y=max_y,max_z=max_z)
+#ffd.update_object(changed_control_point=[145,124,109],new_control_point=[144,123,108])
 
 
 
