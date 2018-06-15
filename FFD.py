@@ -1,6 +1,6 @@
 import numpy as np
 import time
-class OBJ:
+class obj_reader(object):
     def __init__(self, filename, swapyz=False):
         """Loads a Wavefront OBJ file. """
         self.vertices = []
@@ -83,7 +83,7 @@ class FFD(object):
                         if line.startswith('#'):
                             if '#dimension#' in line:
                                 line = f.readline()
-                                dimension = int(line.split('\n')[0])
+                                self.dimension = int(line.split('\n')[0])
                                 continue
                             if '#offsets of the control points#' in line:
                                 begin = True
@@ -92,10 +92,10 @@ class FFD(object):
                                 continue
                             elif '#control grid size#' in line:
                                 size = []
-                                for i in range(dimension):
+                                for i in range(self.dimension):
                                     line = f.readline()
                                     size.append(int(line.split('\n')[0]))
-                                if dimension==3:
+                                if self.dimension==3:
                                     control_points = [[[None for z in range(size[2])]
                                                        for y in range(size[1])]
                                                       for x in range(size[0])]
@@ -150,12 +150,37 @@ class FFD(object):
     # Change one control point, we will get the [u,v,w] of the control point.
     def update_control_point(self, changed_control_point, new_control_point):
         [u, v, w] = changed_control_point
-        self.control_points[u][v][w]=new_control_point[0]
+        self.control_points[u][v][w]=new_control_point
         for i in range(len(self.object_points)):
             self.object_points[i]=self.T_local(self.object_points[i])
 
+    def save_control_points(self,filename):
+        f = open(filename,'w')
+        f.write('#dimension#\n')
+        f.write('3\n')
+        f.write('#one to one#\n')
+        f.write('1\n')
+        f.write('#control grid size#\n')
+        f.write(str(self.cp_num_x)+'\n')
+        f.write(str(self.cp_num_y) + '\n')
+        f.write(str(self.cp_num_z) + '\n')
+        f.write('#control grid spacing#\n')
+        f.write(str(self.nx) + '\n')
+        f.write(str(self.ny) + '\n')
+        f.write(str(self.nz) + '\n')
+        f.write('#offsets of the control points#\n')
+        for x in range(len(self.control_points)):
+            for y in range(len(self.control_points[x])):
+                for z in range(len(self.control_points[x][y])):
+                    f.write(str(self.control_points[x][y][z][0])+' '+str(self.control_points[x][y][z][1])+' '+str(self.control_points[x][y][z][2])+'\t')
+                f.write('\n')
+            f.write('\n')
+        f.write('#quaternion qf,qb,qc,qd,qx,qy,qz#\n')
+        f.write('-1.000000	 0.000000	1.000000	0.000000	 90.000000	-126.000000	-72.000000')
+        return
+
 start = time.clock()
-zxh = OBJ('zxh-ape.obj')
+zxh = obj_reader('zxh-ape.obj')
 end = time.clock()
 print(end-start)
 start = time.clock()
@@ -164,5 +189,9 @@ end = time.clock()
 print(end-start)
 start = time.clock()
 ffd.update_control_point([5,5,5],np.array([260, 460, 79]))
+end = time.clock()
+print(end-start)
+start = time.clock()
+ffd.save_control_points('temp.FFD')
 end = time.clock()
 print(end-start)
