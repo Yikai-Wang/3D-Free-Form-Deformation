@@ -32,7 +32,7 @@ def xyz2realworld(x, y, z):
 def index2realworld(i):
     'Input an index. Output the position of that point in realworld. 0<=xr<=1.'
     if i >= (xl + 1) * (yl + 1) * (zl + 1):
-        print 'Error! Index not exists!'
+        print('Error! Index not exists!')
         return 0
     x, y, z = index2xyz(i)
     xr, yr, zr = xyz2realworld(x, y, z)
@@ -44,17 +44,17 @@ def neighbor(i):
     x, y, z = index2xyz(i)
     n = []
     if x > 0:
-        n.append(xyz2index(x - 1, y, z))
+        n.append(int(xyz2index(x - 1, y, z)))
     if x < xl:
-        n.append(xyz2index(x + 1, y, z))
+        n.append(int(xyz2index(x + 1, y, z)))
     if y > 0:
-        n.append(xyz2index(x, y - 1, z))
+        n.append(int(xyz2index(x, y - 1, z)))
     if y < yl:
-        n.append(xyz2index(x, y + 1, z))
+        n.append(int(xyz2index(x, y + 1, z)))
     if z > 0:
-        n.append(xyz2index(x, y, z - 1))
+        n.append(int(xyz2index(x, y, z - 1)))
     if z < zl:
-        n.append(xyz2index(x, y, z + 1))
+        n.append(int(xyz2index(x, y, z + 1)))
     return n
 
 

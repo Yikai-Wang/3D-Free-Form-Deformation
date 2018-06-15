@@ -69,12 +69,12 @@ renWin = vtk.vtkRenderWindow()
 renWin.AddRenderer(Ren1)
 
 # save the obj data
-dir0 = "C:\Users\hxu13\Desktop\pp\ExportData"
+dir0 = "./"
 porter = vtk.vtkOBJExporter()
-porter.SetFilePrefix(dir0+"\cells")
+porter.SetFilePrefix(dir0+"cells")
 porter.SetInput(renWin)
 porter.Write()
-osRemove(dir0 + '\cells.mtl')
+osRemove(dir0 + 'cells.mtl')
 
 iren = vtk.vtkRenderWindowInteractor()
 iren.SetRenderWindow(renWin)
