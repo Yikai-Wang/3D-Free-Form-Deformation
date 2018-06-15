@@ -55,6 +55,8 @@ def neighbor(i):
         n.append(int(xyz2index(x, y, z - 1)))
     if z < zl:
         n.append(int(xyz2index(x, y, z + 1)))
+    print('i, x, y, z', i, x, y, z)
+    print('its neighbor points\' index', n)
     return n
 
 
