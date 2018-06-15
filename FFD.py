@@ -1,5 +1,6 @@
 import numpy as np
 import time
+import copy
 class obj_reader(object):
     def __init__(self, filename, swapyz=False):
         """Loads a Wavefront OBJ file. """
@@ -8,6 +9,7 @@ class obj_reader(object):
         self.texcoords = []
         self.faces = []
         self.mtl=None
+        self.tmp = []
         material = None
         for line in open(filename, "r"):
             if line.startswith('#'): continue
@@ -15,9 +17,11 @@ class obj_reader(object):
             if not values: continue
             if values[0] == 'v':
                 v=[ float(x) for x in values[1:4]]
+                t = [ float(x) for x in values[4:]]
                 if swapyz:
                     v = v[0], v[2], v[1]
                 self.vertices.append(v)
+                self.tmp.append(t)
             elif values[0] == 'vn':
                 v=[ float(x) for x in values[1:4]]
                 if swapyz:
@@ -45,7 +49,8 @@ class obj_reader(object):
                         norms.append(int(w[2]))
                     else:
                         norms.append(0)
-                self.faces.append((face, norms, texcoords, material))
+                #self.faces.append((face, norms, texcoords, material))
+                self.faces.append(line)
 
 class FFD(object):
 
@@ -53,9 +58,9 @@ class FFD(object):
         self.nx = nx
         self.ny = ny
         self.nz = nz
-        self.object_points = object_points
+        self.object_points = copy.deepcopy(object_points)
         self.initial = initial
-        tmp = object_points
+        tmp = copy.deepcopy(object_points)
         tmp.sort(key=lambda x:x[0])
         self.min_x = tmp[0][0]
         self.max_x = tmp[-1][0]
@@ -69,10 +74,15 @@ class FFD(object):
         self.cp_num_y = int((self.max_y - self.min_y) / self.ny) + 1
         self.cp_num_z = int((self.max_z - self.min_z) / self.nz) + 1
         if self.initial:
-            self.control_points = [[[np.array([self.min_x+x*self.nx,self.min_y+y*self.ny,self.min_z+z*self.nz])
-                                     for z in range(self.cp_num_z)]
-                                    for y in range(self.cp_num_y)]
-                                   for x in range(self.cp_num_x)]
+            # self.control_points = [[[np.array([self.min_x+x*self.nx,self.min_y+y*self.ny,self.min_z+z*self.nz])
+            #                          for z in range(self.cp_num_z)]
+            #                         for y in range(self.cp_num_y)]
+            #                        for x in range(self.cp_num_x)]
+            self.control_points = [
+                [[np.array([0., 0., 0.])
+                  for z in range(self.cp_num_z)]
+                 for y in range(self.cp_num_y)]
+                for x in range(self.cp_num_x)]
         else:
             def load_cp(path):
                 f = open(path,'r')
@@ -137,15 +147,25 @@ class FFD(object):
         u=x/self.nx-i-1
         v=y/self.ny-j-1
         w=z/self.nz-k-1
-        result = np.array([0., 0., 0.])
         for l in range(4):
             if 0<=i+l<self.cp_num_x:
                 for m in range(4):
                     if 0<=j+m<self.cp_num_y:
                         for n in range(4):
                             if 0<=k+n<self.cp_num_z:
-                                result += self.B(l,u)*self.B(m,v)*self.B(n,w)*self.control_points[i+l][j+m][k+n]
-        return result
+                                object_point += self.B(l, u) * self.B(m, v) * self.B(n, w) * \
+                                          self.control_points[i + l][j + m][k + n]
+        if object_point[0]!=x or object_point[1]!=y or object_point[2]!=z:
+            for l in range(4):
+                if 0<=i+l<self.cp_num_x:
+                    for m in range(4):
+                        if 0<=j+m<self.cp_num_y:
+                            for n in range(4):
+                                if 0<=k+n<self.cp_num_z:
+                                    print(self.B(l, u),self.B(m, v), self.B(n, w),self.control_points[i + l][j + m][k + n])
+                                    print(self.B(l, u) * self.B(m, v) * self.B(n, w) * \
+                                              self.control_points[i + l][j + m][k + n])
+        return object_point
 
     # Change one control point, we will get the [u,v,w] of the control point.
     def update_control_point(self, changed_control_point, new_control_point):
@@ -153,6 +173,7 @@ class FFD(object):
         self.control_points[u][v][w]=new_control_point
         for i in range(len(self.object_points)):
             self.object_points[i]=self.T_local(self.object_points[i])
+        return self.object_points
 
     def save_control_points(self,filename):
         f = open(filename,'w')
@@ -184,14 +205,23 @@ zxh = obj_reader('zxh-ape.obj')
 end = time.clock()
 print(end-start)
 start = time.clock()
-ffd = FFD(nx=10,ny=10,nz=10,object_points=zxh.vertices)
+ffd = FFD(nx=5,ny=5,nz=5,object_points=zxh.vertices)
 end = time.clock()
 print(end-start)
 start = time.clock()
-ffd.update_control_point([5,5,5],np.array([260, 460, 79]))
+new_obj = ffd.update_control_point([76,91,42],np.array([-10000, 10000, 500]))
 end = time.clock()
 print(end-start)
 start = time.clock()
 ffd.save_control_points('temp.FFD')
+end = time.clock()
+print(end-start)
+start = time.clock()
+f = open('tmp.obj','w')
+for i in range(len(new_obj)):
+    f.write('v '+str(new_obj[i][0])+' '+str(new_obj[i][1])+' '+str(new_obj[i][2])+' '+str(zxh.tmp[i][0])+' '+str(zxh.tmp[i][1])+' '+str(zxh.tmp[i][2])+'\n')
+for i in range(len(zxh.faces)):
+    f.write(zxh.faces[i])
+f.close()
 end = time.clock()
 print(end-start)
