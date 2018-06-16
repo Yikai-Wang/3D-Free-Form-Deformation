@@ -1,6 +1,7 @@
 import numpy as np
 import time
 import copy
+
 class obj_reader(object):
     def __init__(self, filename, swapyz=False):
         """Loads a Wavefront OBJ file. """
@@ -75,10 +76,6 @@ class FFD(object):
         self.nz = (self.max_z - self.min_z) / (self.cp_num_z-1)
         self.changed = {}
         if self.initial:
-            # self.control_points = [[[np.array([self.min_x+x*self.nx,self.min_y+y*self.ny,self.min_z+z*self.nz])
-            #                          for z in range(self.cp_num_z)]
-            #                         for y in range(self.cp_num_y)]
-            #                        for x in range(self.cp_num_x)]
             self.control_points = [
                 [[np.array([0., 0., 0.])
                   for z in range(self.cp_num_z)]
@@ -144,25 +141,24 @@ class FFD(object):
         elif i == 3:
             return u ** 3 / 6
 
-    def T_local(self,changed_control_point,object_point):
-        [changed_x,changed_y,changed_z] = changed_control_point
+    def T_local(self,object_point):
         [x,y,z]= object_point
         i=int((x-self.min_x)/self.nx)-1
         j=int((y-self.min_y)/self.ny)-1
         k=int((z-self.min_z)/self.nz)-1
-        u=(x-self.min_x)/self.nx-i-1
-        v=(y-self.min_y)/self.ny-j-1
-        w=(z-self.min_z)/self.nz-k-1
-        if i<=changed_x<=i+3 and j<=changed_y<=j+3 and k<=changed_z<=k+3:
-            for l in range(4):
-                if 0<=i+l<self.cp_num_x:
-                    for m in range(4):
-                        if 0<=j+m<self.cp_num_y:
-                            for n in range(4):
-                                if 0<=k+n<self.cp_num_z:
-                                    object_point += self.B(l, u) * self.B(m, v) * self.B(n, w) * \
-                                              self.control_points[i + l][j + m][k + n]
-        return object_point
+        u=(x-self.min_x)/self.nx-int((x-self.min_x)/self.nx)
+        v=(y-self.min_y)/self.ny-int((y-self.min_y)/self.ny)
+        w=(z-self.min_z)/self.nz-int((z-self.min_z)/self.nz)
+        result = np.array([0.,0.,0.])
+        for l in range(4):
+            if 0<=i+l<self.cp_num_x:
+                for m in range(4):
+                    if 0<=j+m<self.cp_num_y:
+                        for n in range(4):
+                            if 0<=k+n<self.cp_num_z:
+                                result += self.B(l, u) * self.B(m, v) * self.B(n, w) * \
+                                          self.control_points[i + l][j + m][k + n]
+        return result
 
     def changed_initial(self):
         self.changed = {}
@@ -180,12 +176,17 @@ class FFD(object):
     #     return self.object_points
 
     def update_control_point(self):
+        #tmp = copy.deepcopy(self.object_points)
+        #result = []
         for (u,v,w), new_location in self.changed.items():
-            self.control_points[u][v][w] += new_location-self.control_points_location[u][v][w]
-            self.control_points_location[u][v][w] = new_location
-            for i in range(len(self.object_points)):
-                self.object_points[i]=self.T_local([u,v,w],self.object_points[i])
-        return self.object_points
+            self.control_points[u][v][w] = new_location-self.control_points_location[u][v][w]
+        # for i in range(len(self.object_points)):
+        #     change_point=self.T_local([u,v,w],tmp[i])
+        #     if change_point[0]==0 and change_point[1]==0 and change_point[2]==0:
+        #         continue
+        #     else:
+        #         result.append([i,self.object_points[i]+change_point])
+        #return result
 
     def save_control_points(self,filename):
         f = open(filename,'w')
