@@ -54,10 +54,10 @@ class obj_reader(object):
 
 class FFD(object):
 
-    def __init__(self,nx,ny,nz,object_points,initial=True,cp_path=None):
-        self.nx = nx
-        self.ny = ny
-        self.nz = nz
+    def __init__(self,num_x,num_y,num_z,object_points,initial=True,cp_path=None):
+        self.cp_num_x = num_x
+        self.cp_num_y = num_y
+        self.cp_num_z = num_z
         self.object_points = copy.deepcopy(object_points)
         self.initial = initial
         tmp = copy.deepcopy(object_points)
@@ -70,9 +70,10 @@ class FFD(object):
         tmp.sort(key=lambda x: x[2])
         self.min_z = tmp[0][2]
         self.max_z = tmp[-1][2]
-        self.cp_num_x = int((self.max_x - self.min_x) / self.nx) + 2
-        self.cp_num_y = int((self.max_y - self.min_y) / self.ny) + 2
-        self.cp_num_z = int((self.max_z - self.min_z) / self.nz) + 2
+        self.nx = (self.max_x - self.min_x) / self.cp_num_x
+        self.ny = (self.max_y - self.min_y) / self.cp_num_y
+        self.nz = (self.max_z - self.min_z) / self.cp_num_z
+        self.changed = {}
         if self.initial:
             # self.control_points = [[[np.array([self.min_x+x*self.nx,self.min_y+y*self.ny,self.min_z+z*self.nz])
             #                          for z in range(self.cp_num_z)]
@@ -161,25 +162,29 @@ class FFD(object):
                                 if 0<=k+n<self.cp_num_z:
                                     object_point += self.B(l, u) * self.B(m, v) * self.B(n, w) * \
                                               self.control_points[i + l][j + m][k + n]
-        if object_point[0]!=x or object_point[1]!=y or object_point[2]!=z:
-            for l in range(4):
-                if 0<=i+l<self.cp_num_x:
-                    for m in range(4):
-                        if 0<=j+m<self.cp_num_y:
-                            for n in range(4):
-                                if 0<=k+n<self.cp_num_z:
-                                    print(self.B(l, u),self.B(m, v), self.B(n, w),self.control_points[i + l][j + m][k + n])
-                                    print(self.B(l, u) * self.B(m, v) * self.B(n, w) * \
-                                              self.control_points[i + l][j + m][k + n])
         return object_point
 
+    def changed_initial(self):
+        self.changed = {}
+
+    def changed_update(self,id,location):
+        self.changed[id]=location
+
     # Change one control point, we will get the [u,v,w] of the control point.
-    def update_control_point(self, changed_control_point, change):
-        [u, v, w] = changed_control_point
-        self.control_points[u][v][w] += change
-        self.control_points_location[u][v][w] += change
-        for i in range(len(self.object_points)):
-            self.object_points[i]=self.T_local(changed_control_point,self.object_points[i])
+    # def update_control_point(self, changed_control_point, change):
+    #     [u, v, w] = changed_control_point
+    #     self.control_points[u][v][w] += change
+    #     self.control_points_location[u][v][w] += change
+    #     for i in range(len(self.object_points)):
+    #         self.object_points[i]=self.T_local(changed_control_point,self.object_points[i])
+    #     return self.object_points
+
+    def update_control_point(self):
+        for [u,v,w],new_location in self.changed.items():
+            self.control_points[u][v][w] += new_location-self.control_points_location[u][v][w]
+            self.control_points_location[u][v][w] = new_location
+            for i in range(len(self.object_points)):
+                self.object_points[i]=self.T_local([u,v,w],self.object_points[i])
         return self.object_points
 
     def save_control_points(self,filename):
@@ -207,28 +212,30 @@ class FFD(object):
         f.write('-1.000000	 0.000000	1.000000	0.000000	 90.000000	-126.000000	-72.000000')
         return
 
-# start = time.clock()
-# zxh = obj_reader('zxh-ape.obj')
-# end = time.clock()
-# print(end-start)
-# start = time.clock()
-# ffd = FFD(nx=20,ny=20,nz=20,object_points=zxh.vertices)
-# end = time.clock()
-# print(end-start)
-#start = time.clock()
-#new_obj = ffd.update_control_point([10,10,10],np.array([-10000, 10000, 500]))
-#end = time.clock()
-#print(end-start)
-#start = time.clock()
-#ffd.save_control_points('temp.FFD')
-#end = time.clock()
-#print(end-start)
-#start = time.clock()
-#f = open('tmp.obj','w')
-#for i in range(len(new_obj)):
-#    f.write('v '+str(new_obj[i][0])+' '+str(new_obj[i][1])+' '+str(new_obj[i][2])+' '+str(zxh.tmp[i][0])+' '+str(zxh.tmp[i][1])+' '+str(zxh.tmp[i][2])+'\n')
-#for i in range(len(zxh.faces)):
-#    f.write(zxh.faces[i])
-#f.close()
-#end = time.clock()
-#print(end-start)
+
+if __name__ == '__main__':
+    start = time.clock()
+    zxh = obj_reader('zxh-ape.obj')
+    end = time.clock()
+    print(end-start)
+    start = time.clock()
+    ffd = FFD(num_x=5,num_y=5,num_z=5,object_points=zxh.vertices)
+    end = time.clock()
+    print(end-start)
+    start = time.clock()
+    new_obj = ffd.update_control_point([1,1,1],np.array([-10000, 10000, 500]))
+    end = time.clock()
+    print(end-start)
+    start = time.clock()
+    ffd.save_control_points('temp.FFD')
+    end = time.clock()
+    print(end-start)
+    start = time.clock()
+    f = open('tmp.obj','w')
+    for i in range(len(new_obj)):
+        f.write('v '+str(new_obj[i][0])+' '+str(new_obj[i][1])+' '+str(new_obj[i][2])+' '+str(zxh.tmp[i][0])+' '+str(zxh.tmp[i][1])+' '+str(zxh.tmp[i][2])+'\n')
+    for i in range(len(zxh.faces)):
+        f.write(zxh.faces[i])
+    f.close()
+    end = time.clock()
+    print(end-start)
