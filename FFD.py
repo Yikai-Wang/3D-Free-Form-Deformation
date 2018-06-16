@@ -70,9 +70,9 @@ class FFD(object):
         tmp.sort(key=lambda x: x[2])
         self.min_z = tmp[0][2]
         self.max_z = tmp[-1][2]
-        self.cp_num_x = int((self.max_x - self.min_x) / self.nx) + 1
-        self.cp_num_y = int((self.max_y - self.min_y) / self.ny) + 1
-        self.cp_num_z = int((self.max_z - self.min_z) / self.nz) + 1
+        self.cp_num_x = int((self.max_x - self.min_x) / self.nx) + 2
+        self.cp_num_y = int((self.max_y - self.min_y) / self.ny) + 2
+        self.cp_num_z = int((self.max_z - self.min_z) / self.nz) + 2
         if self.initial:
             # self.control_points = [[[np.array([self.min_x+x*self.nx,self.min_y+y*self.ny,self.min_z+z*self.nz])
             #                          for z in range(self.cp_num_z)]
@@ -207,14 +207,14 @@ class FFD(object):
         f.write('-1.000000	 0.000000	1.000000	0.000000	 90.000000	-126.000000	-72.000000')
         return
 
-start = time.clock()
-zxh = obj_reader('zxh-ape.obj')
-end = time.clock()
-print(end-start)
-start = time.clock()
-ffd = FFD(nx=20,ny=20,nz=20,object_points=zxh.vertices)
-end = time.clock()
-print(end-start)
+# start = time.clock()
+# zxh = obj_reader('zxh-ape.obj')
+# end = time.clock()
+# print(end-start)
+# start = time.clock()
+# ffd = FFD(nx=20,ny=20,nz=20,object_points=zxh.vertices)
+# end = time.clock()
+# print(end-start)
 #start = time.clock()
 #new_obj = ffd.update_control_point([10,10,10],np.array([-10000, 10000, 500]))
 #end = time.clock()

@@ -1,5 +1,6 @@
 import vtk
-import FFD
+from FFD import obj_reader, FFD
+
 
 #  xl means how long is x. For example, if xl==2, then there are 3 control points in x-axe.
 #  In fact, this is not the real world distance. I set real world distance to be 1.
@@ -7,6 +8,8 @@ xl = 5
 yl = 5
 zl = 5
 
+zxh = obj_reader('zxh-ape.obj')
+ffd = FFD(nx=100, ny=100, nz=80, object_points=zxh.vertices)
 
 def xyz2index(x, y, z):
     'For example, xyz2index(0,0,0)=0, xyz2index(0,0,1)=1'
@@ -24,9 +27,10 @@ def index2xyz(i):
 
 def xyz2realworld(x, y, z):
     'Input x, y, z is int. Output xr, yr, zr is float. 0<=xr<=1.'
-    xr = float(x) / xl
-    yr = float(y) / yl
-    zr = float(z) / zl
+    # xr = float(x) / xl
+    # yr = float(y) / yl
+    # zr = float(z) / zl
+    xr, yr, zr = ffd.control_points_location[x][y][z]
     return xr, yr, zr
 
 
@@ -66,12 +70,19 @@ def sphereCallback(obj, event):
     for i in range(totalsphere):
         # x, y, z = index2xyz(i)
         # if (x + y + z) % 2 == 0:
+        # 对于一个球体i 获取它之前的位置
+        x0, y0, z0 = spherelocation[i]
+        # 对于一个球体i 获取现在球心的位置
+        x1, y1, z1 = spherelist[i].GetCenter()
+        if x1!=x0 or y1!=y0 or z1!=z0:
+            print('Before location', x0, y0, z0)
+            print("New location", x1, y1, z1)
+            print("Index", i)
+            print("i,j,k", index2xyz(i))
+            # update location
+            spherelocation[i] = [x1, y1, z1]
         n = neighbor(i)
         for j in n:
-            # print('j:', j)
-            # print('spherelist:', len(spherelist))
-            # 对于一个球体i 获取球心的位置
-            x1, y1, z1 = spherelist[i].GetCenter()
             # 对于这个球体i的邻居j 获取球心的位置
             x2, y2, z2 = spherelist[j].GetCenter()
             # 设置一条线的起点和终点
@@ -100,7 +111,7 @@ ren = vtk.vtkRenderer()
 # 设置背景颜色
 # ren.SetBackground(1, 1, 1)
 
-# add face 
+# add face
 filename = "/Users/ranshihan/Coding/3D-Free-Form-Deformation/zxh-ape.obj"
 reader = vtk.vtkOBJReader()
 reader.SetFileName(filename)
@@ -138,7 +149,7 @@ for i in range(totalsphere):
     # 设置球状体在真实空间中的xyz坐标
     sphereWidget.SetCenter(x, y, z)
     # 设置球状体的半径大小
-    sphereWidget.SetRadius(0.01)
+    sphereWidget.SetRadius(3)
     # 设置球面的颜色 仍然是通过GetProperty来获取属性并进行设置
     # sphereWidget.GetSphereProperty().SetColor(0, 1.0, 0)
     # 设置填充球状体的表面 三种基本的属性设置方式：点方式，网格方式和面方式
@@ -162,15 +173,15 @@ for i in range(100 * totalsphere):
     actorlist.append(vtk.vtkActor())
 
 count = 0
+spherelocation = []
 for i in range(totalsphere):
     # x, y, z = index2xyz(i)
     # if (x + y + z) % 2 == 0:
+    # 对于一个球体i 获取球心的位置
+    x1, y1, z1 = spherelist[i].GetCenter()
+    spherelocation.append([x1, y1, z1])
     n = neighbor(i)
     for j in n:
-        # print('j:', j)
-        # print('spherelist:', len(spherelist))
-        # 对于一个球体i 获取球心的位置
-        x1, y1, z1 = spherelist[i].GetCenter()
         # 对于这个球体i的邻居j 获取球心的位置
         x2, y2, z2 = spherelist[j].GetCenter()
         # 设置一条线的起点和终点
