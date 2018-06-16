@@ -100,7 +100,7 @@ ren = vtk.vtkRenderer()
 # ren.SetBackground(1, 1, 1)
 
 # add face 
-filename = "/Users/ranshihan/Coding/3D-Free-Form-Deformation/3D-FFD-in-VTK-master/face.obj"
+filename = "face.obj"
 reader = vtk.vtkOBJReader()
 reader.SetFileName(filename)
 

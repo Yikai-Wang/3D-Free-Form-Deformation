@@ -70,9 +70,9 @@ class FFD(object):
         tmp.sort(key=lambda x: x[2])
         self.min_z = tmp[0][2]
         self.max_z = tmp[-1][2]
-        self.nx = (self.max_x - self.min_x) / self.cp_num_x
-        self.ny = (self.max_y - self.min_y) / self.cp_num_y
-        self.nz = (self.max_z - self.min_z) / self.cp_num_z
+        self.nx = (self.max_x - self.min_x) / (self.cp_num_x-1)
+        self.ny = (self.max_y - self.min_y) / (self.cp_num_y-1)
+        self.nz = (self.max_z - self.min_z) / (self.cp_num_z-1)
         self.changed = {}
         if self.initial:
             # self.control_points = [[[np.array([self.min_x+x*self.nx,self.min_y+y*self.ny,self.min_z+z*self.nz])
@@ -180,7 +180,7 @@ class FFD(object):
     #     return self.object_points
 
     def update_control_point(self):
-        for [u,v,w],new_location in self.changed.items():
+        for (u,v,w), new_location in self.changed.items():
             self.control_points[u][v][w] += new_location-self.control_points_location[u][v][w]
             self.control_points_location[u][v][w] = new_location
             for i in range(len(self.object_points)):

@@ -1,15 +1,16 @@
 import vtk
 from FFD import obj_reader, FFD
-
+import numpy as np
 
 #  xl means how long is x. For example, if xl==2, then there are 3 control points in x-axe.
 #  In fact, this is not the real world distance. I set real world distance to be 1.
-xl = 5
-yl = 5
-zl = 5
+xl = 4
+yl = 4
+zl = 4
 
-zxh = obj_reader('zxh-ape.obj')
-ffd = FFD(nx=100, ny=100, nz=80, object_points=zxh.vertices)
+filename = "face.obj"
+zxh = obj_reader(filename)
+ffd = FFD(num_x=xl+1, num_y=yl+1, num_z=zl+1, object_points=zxh.vertices)
 
 def xyz2index(x, y, z):
     'For example, xyz2index(0,0,0)=0, xyz2index(0,0,1)=1'
@@ -80,6 +81,8 @@ def sphereCallback(obj, event):
             print("Index", i)
             print("i,j,k", index2xyz(i))
             # update location
+            i, j, k = index2xyz(i)
+            ffd.changed_update((i,j,k), np.array([x1, y1, z1]))
             spherelocation[i] = [x1, y1, z1]
 
         n = neighbor(i)
@@ -103,7 +106,33 @@ def sphereCallback(obj, event):
             # 使用renderer的方法AddActor()把要渲染的actor加入到renderer中去。
             ren.AddActor(actorlist[count])
             count += 1
-    ren.RemoveActor(actor)
+    
+    # ren.RemoveActor(actor)
+
+    print('Begin FFD...')
+    new_obj = ffd.update_control_point()
+    ffd.changed_initial()
+    filename = "tmp.obj"
+    f = open(filename,'w')
+
+    print('Calculating...')
+    for i in range(len(new_obj)):
+        f.write('v '+str(new_obj[i][0])+' '+str(new_obj[i][1])+' '+str(new_obj[i][2])+' '+str(zxh.tmp[i][0])+' '+str(zxh.tmp[i][1])+' '+str(zxh.tmp[i][2])+'\n')
+    for i in range(len(zxh.faces)):
+        f.write(zxh.faces[i])
+    f.close()
+
+    reader = vtk.vtkOBJReader()
+    reader.SetFileName(filename)
+
+    mapper = vtk.vtkPolyDataMapper()
+    mapper.SetInputConnection(reader.GetOutputPort())
+
+    actor = vtk.vtkActor()
+    actor.SetMapper(mapper)
+    ren.AddActor(actor)
+    print('Done FFD')
+
 
 
 
@@ -114,7 +143,6 @@ ren = vtk.vtkRenderer()
 # ren.SetBackground(1, 1, 1)
 
 # add face
-filename = "/Users/ranshihan/Coding/3D-Free-Form-Deformation/zxh-ape.obj"
 reader = vtk.vtkOBJReader()
 reader.SetFileName(filename)
 
@@ -167,7 +195,7 @@ sourcelist = []
 mapperlist = []
 actorlist = []
 # 多初始化一些 存到list里面
-for i in range(100 * totalsphere):
+for i in range(5 * totalsphere):
     sourcelist.append(vtk.vtkLineSource())
     # 添加vtkPolyDataMapper对象
     mapperlist.append(vtk.vtkPolyDataMapper())
