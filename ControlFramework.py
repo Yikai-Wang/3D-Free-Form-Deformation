@@ -1,16 +1,33 @@
 import vtk
 from FFD import obj_reader, FFD
 import numpy as np
+from time import time
 
 #  xl means how long is x. For example, if xl==2, then there are 3 control points in x-axe.
 #  In fact, this is not the real world distance. I set real world distance to be 1.
-xl = 4
-yl = 4
-zl = 4
-
+xl = 6
+yl = 6
+zl = 6
+RADISU = 3
+RESIZE = 0.2
 filename = "zxh-ape.obj"
-zxh = obj_reader(filename)
-ffd = FFD(num_x=xl+1, num_y=yl+1, num_z=zl+1, object_points=zxh.vertices)
+reader = vtk.vtkOBJReader()
+reader.SetFileName(filename)
+reader.Update()
+data = reader.GetOutput()
+pDecimate = vtk.vtkDecimatePro()
+pDecimate.SetInputData(data)
+pDecimate.SetTargetReduction(1-RESIZE)
+pDecimate.PreserveTopologyOff()
+pDecimate.SplittingOn()
+pDecimate.BoundaryVertexDeletionOn()
+pDecimate.SetMaximumError(vtk.VTK_DOUBLE_MAX)
+pDecimate.Update()
+data = pDecimate.GetOutput()
+points = data.GetPoints()
+vertices = [points.GetPoint(i) for i in range(points.GetNumberOfPoints())]
+#zxh = obj_reader('zxh-ape.obj')
+ffd = FFD(num_x=xl+1, num_y=yl+1, num_z=zl+1, object_points=vertices)
 
 def xyz2index(x, y, z):
     'For example, xyz2index(0,0,0)=0, xyz2index(0,0,1)=1'
@@ -107,30 +124,41 @@ def sphereCallback(obj, event):
             ren.AddActor(actorlist[count])
             count += 1
     
-    # ren.RemoveActor(actor)
+    ren.RemoveActor(faceactorlist[0])
 
     print('Begin FFD...')
-    new_obj = ffd.update_control_point()
-    ffd.changed_initial()
-    filename = "tmp.obj"
-    f = open(filename,'w')
-
     print('Calculating...')
-    for i in range(len(new_obj)):
-        f.write('v '+str(new_obj[i][0])+' '+str(new_obj[i][1])+' '+str(new_obj[i][2])+' '+str(zxh.tmp[i][0])+' '+str(zxh.tmp[i][1])+' '+str(zxh.tmp[i][2])+'\n')
-    for i in range(len(zxh.faces)):
-        f.write(zxh.faces[i])
-    f.close()
+    ffd.update_control_point()
 
-    reader = vtk.vtkOBJReader()
-    reader.SetFileName(filename)
+    
 
+    # filename = "tmp.obj"
+    # f = open(filename,'w')
+
+    # print('Rewriting...')
+    # for i in range(len(new_obj)):
+    #     f.write('v '+str(new_obj[i][0])+' '+str(new_obj[i][1])+' '+str(new_obj[i][2])+' '+str(zxh.tmp[i][0])+' '+str(zxh.tmp[i][1])+' '+str(zxh.tmp[i][2])+'\n')
+    #     #f.write('v '+str(new_obj[i][0])+' '+str(new_obj[i][1])+' '+str(new_obj[i][2])+'\n')
+    # for i in range(len(zxh.faces)):
+    #     f.write(zxh.faces[i])
+    # f.close()
+
+    points = data.GetPoints()
+
+    t1 = time()
+    for i in range(len(ffd.object_points)):
+        tmp = ffd.T_local(ffd.object_points[i])
+        if tmp[0]!=0 or tmp[1]!=0 or tmp[2]!=0:
+            points.SetPoint(i,tuple(ffd.object_points[i]+tmp))
+    print(time()-t1)
+    ffd.changed_initial()
     mapper = vtk.vtkPolyDataMapper()
-    mapper.SetInputConnection(reader.GetOutputPort())
+    mapper.SetInputData(data)
 
     actor = vtk.vtkActor()
     actor.SetMapper(mapper)
-    ren.AddActor(actor)
+    faceactorlist[0] = actor
+    ren.AddActor(faceactorlist[0])
     print('Done FFD')
 
 
@@ -149,9 +177,10 @@ reader.SetFileName(filename)
 mapper = vtk.vtkPolyDataMapper()
 mapper.SetInputConnection(reader.GetOutputPort())
 
+faceactorlist = []
 actor = vtk.vtkActor()
 actor.SetMapper(mapper)
-
+faceactorlist.append(actor)
 ren.AddActor(actor)
 
 # vtkRenderer的实例ren协调渲染窗口renWin的视口（viewport）的渲染过程
@@ -179,7 +208,7 @@ for i in range(totalsphere):
     # 设置球状体在真实空间中的xyz坐标
     sphereWidget.SetCenter(x, y, z)
     # 设置球状体的半径大小
-    sphereWidget.SetRadius(3)
+    sphereWidget.SetRadius(RADISU)
     # 设置球面的颜色 仍然是通过GetProperty来获取属性并进行设置
     # sphereWidget.GetSphereProperty().SetColor(0, 1.0, 0)
     # 设置填充球状体的表面 三种基本的属性设置方式：点方式，网格方式和面方式
@@ -195,7 +224,7 @@ sourcelist = []
 mapperlist = []
 actorlist = []
 # 多初始化一些 存到list里面
-for i in range(5 * totalsphere):
+for i in range((xl+1) * totalsphere):
     sourcelist.append(vtk.vtkLineSource())
     # 添加vtkPolyDataMapper对象
     mapperlist.append(vtk.vtkPolyDataMapper())
