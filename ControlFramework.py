@@ -8,7 +8,7 @@ xl = 4
 yl = 4
 zl = 4
 
-filename = "face.obj"
+filename = "zxh-ape.obj"
 zxh = obj_reader(filename)
 ffd = FFD(num_x=xl+1, num_y=yl+1, num_z=zl+1, object_points=zxh.vertices)
 
