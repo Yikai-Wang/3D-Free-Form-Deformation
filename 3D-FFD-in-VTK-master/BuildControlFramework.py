@@ -15,8 +15,8 @@ def xyz2index(x, y, z):
 
 def index2xyz(i):
     'For example, index2xyz(1)=(0,0,1)'
-    z = i / ((xl + 1) * (yl + 1))
-    y = (i - z * (xl + 1) * (yl + 1)) / (xl + 1)
+    z = i // ((xl + 1) * (yl + 1))
+    y = (i - z * (xl + 1) * (yl + 1)) // (xl + 1)
     x = i % (xl + 1)
     return x, y, z
 
@@ -44,17 +44,17 @@ def neighbor(i):
     x, y, z = index2xyz(i)
     n = []
     if x > 0:
-        n.append(int(xyz2index(x - 1, y, z)))
+        n.append(xyz2index(x - 1, y, z))
     if x < xl:
-        n.append(int(xyz2index(x + 1, y, z)))
+        n.append(xyz2index(x + 1, y, z))
     if y > 0:
-        n.append(int(xyz2index(x, y - 1, z)))
+        n.append(xyz2index(x, y - 1, z))
     if y < yl:
-        n.append(int(xyz2index(x, y + 1, z)))
+        n.append(xyz2index(x, y + 1, z))
     if z > 0:
-        n.append(int(xyz2index(x, y, z - 1)))
+        n.append(xyz2index(x, y, z - 1))
     if z < zl:
-        n.append(int(xyz2index(x, y, z + 1)))
+        n.append(xyz2index(x, y, z + 1))
     # print('i, x, y, z', i, x, y, z)
     # print('its neighbor points\' index', n)
     return n
@@ -67,12 +67,12 @@ def sphereCallback(obj, event):
         # if (x + y + z) % 2 == 0:
         n = neighbor(i)
         for j in n:
-            print('j:', j)
-            print('spherelist:', len(spherelist))
+            # print('j:', j)
+            # print('spherelist:', len(spherelist))
             # 对于一个球体i 获取球心的位置
             x1, y1, z1 = spherelist[i].GetCenter()
             # 对于这个球体i的邻居j 获取球心的位置
-            x2, y2, z2 = spherelist[j-1].GetCenter()
+            x2, y2, z2 = spherelist[j].GetCenter()
             # 设置一条线的起点和终点
             sourcelist[count].SetPoint1(x1, y1, z1)
             sourcelist[count].SetPoint2(x2, y2, z2)
@@ -86,10 +86,10 @@ def sphereCallback(obj, event):
             # ref: http://vtk.1045678.n5.nabble.com/vtkActor-GetProperty-gt-SetColor-not-working-for-me-td5722373.html
             actorlist[count].GetMapper().ScalarVisibilityOff()
             # 设置Actor的颜色 该方法用RGB值来设置一个Actor的红、绿、蓝分量的颜色 每个分量的取值范围从0到1
-            actorlist[count].GetProperty().SetColor(1.0, 1.0, 0)
+            actorlist[count].GetProperty().SetColor(0, 1.0, 0)
             # 使用renderer的方法AddActor()把要渲染的actor加入到renderer中去。
             ren.AddActor(actorlist[count])
-            count = count + 1
+            count += 1
 
 
 
@@ -98,6 +98,19 @@ def sphereCallback(obj, event):
 ren = vtk.vtkRenderer()
 # 设置背景颜色
 # ren.SetBackground(1, 1, 1)
+
+# add face 
+filename = "/Users/ranshihan/Coding/3D-Free-Form-Deformation/3D-FFD-in-VTK-master/face.obj"
+reader = vtk.vtkOBJReader()
+reader.SetFileName(filename)
+
+mapper = vtk.vtkPolyDataMapper()
+mapper.SetInputConnection(reader.GetOutputPort())
+
+actor = vtk.vtkActor()
+actor.SetMapper(mapper)
+
+ren.AddActor(actor)
 
 # vtkRenderer的实例ren协调渲染窗口renWin的视口（viewport）的渲染过程
 renWin = vtk.vtkRenderWindow()
@@ -126,7 +139,7 @@ for i in range(totalsphere):
     # 设置球状体的半径大小
     sphereWidget.SetRadius(0.01)
     # 设置球面的颜色 仍然是通过GetProperty来获取属性并进行设置
-    sphereWidget.GetSphereProperty().SetColor(0, 1.0, 0)
+    # sphereWidget.GetSphereProperty().SetColor(0, 1.0, 0)
     # 设置填充球状体的表面 三种基本的属性设置方式：点方式，网格方式和面方式
     sphereWidget.SetRepresentationToSurface()
     # 要是没有这一行 球状体就不会显示出来了
@@ -146,6 +159,37 @@ for i in range(100 * totalsphere):
     mapperlist.append(vtk.vtkPolyDataMapper())
     # 创建actor对象（要渲染的对象） 
     actorlist.append(vtk.vtkActor())
+
+count = 0
+for i in range(totalsphere):
+    # x, y, z = index2xyz(i)
+    # if (x + y + z) % 2 == 0:
+    n = neighbor(i)
+    for j in n:
+        # print('j:', j)
+        # print('spherelist:', len(spherelist))
+        # 对于一个球体i 获取球心的位置
+        x1, y1, z1 = spherelist[i].GetCenter()
+        # 对于这个球体i的邻居j 获取球心的位置
+        x2, y2, z2 = spherelist[j].GetCenter()
+        # 设置一条线的起点和终点
+        sourcelist[count].SetPoint1(x1, y1, z1)
+        sourcelist[count].SetPoint2(x2, y2, z2)
+        # Filter的连接可以通过方法SetInputConnection()和GetOutputPort()
+        # 输出通过方法SetInputConnection()设置为vtkPolyDataMapper对象的输入
+        mapperlist[count].SetInputConnection(sourcelist[count].GetOutputPort())
+        # 设置定义几何信息的mapper到这个actor里
+        # 在里 mapper的类型是vtkPolyDataMapper 也就是用类似点、线、多边形(Polygons)等几何图元进行渲染的
+        actorlist[count].SetMapper(mapperlist[count])
+        # vtkActor.GetProperty()->SetColor() not working for me
+        # ref: http://vtk.1045678.n5.nabble.com/vtkActor-GetProperty-gt-SetColor-not-working-for-me-td5722373.html
+        actorlist[count].GetMapper().ScalarVisibilityOff()
+        # 设置Actor的颜色 该方法用RGB值来设置一个Actor的红、绿、蓝分量的颜色 每个分量的取值范围从0到1
+        actorlist[count].GetProperty().SetColor(0, 1.0, 0)
+        # 使用renderer的方法AddActor()把要渲染的actor加入到renderer中去。
+        ren.AddActor(actorlist[count])
+        count += 1
+
 
 # set interaction
 # 用户方法通过定义一个函数并将其作为参数传入AddObserver来定义
