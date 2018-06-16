@@ -81,6 +81,7 @@ def sphereCallback(obj, event):
             print("i,j,k", index2xyz(i))
             # update location
             spherelocation[i] = [x1, y1, z1]
+
         n = neighbor(i)
         for j in n:
             # 对于这个球体i的邻居j 获取球心的位置
@@ -102,6 +103,7 @@ def sphereCallback(obj, event):
             # 使用renderer的方法AddActor()把要渲染的actor加入到renderer中去。
             ren.AddActor(actorlist[count])
             count += 1
+    ren.RemoveActor(actor)
 
 
 
