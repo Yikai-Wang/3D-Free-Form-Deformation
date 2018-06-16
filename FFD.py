@@ -83,6 +83,10 @@ class FFD(object):
                   for z in range(self.cp_num_z)]
                  for y in range(self.cp_num_y)]
                 for x in range(self.cp_num_x)]
+            self.control_points_location = [[[np.array([self.min_x+x*self.nx, self.min_y+y*self.ny, self.min_z+z*self.nz])
+                  for z in range(self.cp_num_z)]
+                 for y in range(self.cp_num_y)]
+                for x in range(self.cp_num_x)]
         else:
             def load_cp(path):
                 f = open(path,'r')
@@ -170,9 +174,10 @@ class FFD(object):
         return object_point
 
     # Change one control point, we will get the [u,v,w] of the control point.
-    def update_control_point(self, changed_control_point, new_control_point):
+    def update_control_point(self, changed_control_point, change):
         [u, v, w] = changed_control_point
-        self.control_points[u][v][w]=new_control_point
+        self.control_points[u][v][w] += change
+        self.control_points_location[u][v][w] += change
         for i in range(len(self.object_points)):
             self.object_points[i]=self.T_local(changed_control_point,self.object_points[i])
         return self.object_points
