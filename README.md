@@ -3,8 +3,10 @@ Finished：
 
 FFD Algorithm(Hope it is right.)
 
- Load obj file(To a list)
+ Load obj file
+
+Change data in VTK
 
 TODO:
 
-Change data in VTK????
+GUI
