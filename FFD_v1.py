@@ -214,29 +214,3 @@ class FFD(object):
         return
 
 
-if __name__ == '__main__':
-    start = time.clock()
-    zxh = obj_reader('zxh-ape.obj')
-    end = time.clock()
-    print(end-start)
-    start = time.clock()
-    ffd = FFD(num_x=5,num_y=5,num_z=5,object_points=zxh.vertices)
-    end = time.clock()
-    print(end-start)
-    start = time.clock()
-    new_obj = ffd.update_control_point([1,1,1],np.array([-10000, 10000, 500]))
-    end = time.clock()
-    print(end-start)
-    start = time.clock()
-    ffd.save_control_points('temp.FFD')
-    end = time.clock()
-    print(end-start)
-    start = time.clock()
-    f = open('tmp.obj','w')
-    for i in range(len(new_obj)):
-        f.write('v '+str(new_obj[i][0])+' '+str(new_obj[i][1])+' '+str(new_obj[i][2])+' '+str(zxh.tmp[i][0])+' '+str(zxh.tmp[i][1])+' '+str(zxh.tmp[i][2])+'\n')
-    for i in range(len(zxh.faces)):
-        f.write(zxh.faces[i])
-    f.close()
-    end = time.clock()
-    print(end-start)
