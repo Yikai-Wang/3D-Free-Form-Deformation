@@ -62,7 +62,9 @@ typora-copy-images-to: ../markdown
    - **设置控制点监听器**
      - 对于每一个控制点，利用`AddObserver`监听`vtkRenderWindowInteractor`里的事件。
    - **进行交互**
-     - 定义回调函数`sphereCallback`来实现交互。
+     - 我们定义回调函数`sphereCallback`来实现交互。
+     - 在该回调函数中，会对每个控制点球体的位置进行查询，如果球体位置发生更新，则重新生成该球体与邻居结点的连线，并把该球体的新位置返回给FFD算法进行计算形变。
+     - 获取FFD算法计算好后的数据，用`RemoveActor`去除之前显示的物体并用`AddActor`显示更新形变后的物体。
 
 2. ##### 图像处理：
 
