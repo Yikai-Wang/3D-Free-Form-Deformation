@@ -209,8 +209,7 @@ class FFD(object):
                     f.write(str(self.control_points[x][y][z][0])+' '+str(self.control_points[x][y][z][1])+' '+str(self.control_points[x][y][z][2])+'\t')
                 f.write('\n')
             f.write('\n')
-        f.write('#quaternion qf,qb,qc,qd,qx,qy,qz#\n')
-        f.write('-1.000000	 0.000000	1.000000	0.000000	 90.000000	-126.000000	-72.000000')
+        f.close()
         return
 
 
