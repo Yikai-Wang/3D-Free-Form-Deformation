@@ -104,7 +104,7 @@ class FFD(object):
                                 continue
                             elif '#control grid size#' in line:
                                 size = []
-                                for i in range(self.dimension):
+                                for _ in range(self.dimension):
                                     line = f.readline()
                                     size.append(int(line.split('\n')[0]))
                                 if self.dimension==3:
