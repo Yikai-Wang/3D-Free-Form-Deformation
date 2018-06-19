@@ -1,7 +1,3 @@
----
-typora-copy-images-to: ../markdown
----
-
 # 数据可视化期末项目
 
 ---
@@ -49,6 +45,31 @@ typora-copy-images-to: ../markdown
 
    ###### 3D Free-Form Deformation (FFD)
 
+   FFD的主要目的是通过对全局形变函数和局部形变函数的构造达到对非刚性形变的模拟。即将形变函数:
+   $$
+   \textbf{T}:(x,y,z)\rightarrow (x^{'},y^{'},z^{'})
+   $$
+   构造为为全局形变函数和局部形变函数的组合：
+   $$
+   \textbf{T}(x,y,z)=\textbf{T}_{global}(x,y,z)+\textbf{T}_{local}(x,y,z)
+   $$
+   其中，全局性变函数是一个自由变换(affine transformation).定义为：
+   $$
+   \textbf{T}_{global}(x,y,z)=\left(\begin{matrix}\theta_{11}&\theta_{12}&\theta_{13}\\\theta_{21}&\theta_{22}&\theta_{23}\\\theta_{31}&\theta_{32}&\theta_{33}\end{matrix}\right)\left(\begin{matrix}x\\y\\z\end{matrix}\right)+\left(\begin{matrix}\theta_{14}\\\theta_{24}\\\theta_{34}\end{matrix}\right)
+   $$
+   为了定义基于样条函数的局部形变FFD，我们定义物体所占据的区域为$\Omega=\{(x,y,z)|0\leq x<X,0\leq y <Y,0\leq z<Z\}$.定义$\Phi$为体积为$n_x*n_y*n_z$的控制点网络，其中$n_i$为第i个维度相邻控制点之间的距离。那么FFD可以被定义为一维立方B样条的三维张量积：
+   $$
+   \textbf{T}_{local}(x,y,z)=\sum_{l=0}^3\sum_{m=0}^3\sum_{n=0}^3B_t(u)B_m(v)B_n(w)\phi_{i+l,j+m,k+n}
+   $$
+   其中$i=\lfloor x/n_x\rfloor-1,j=\lfloor y/n_y\rfloor-1,k=\lfloor z/n_z\rfloor-1,\\u=x/n_x-\lfloor x/n_x\rfloor,v=y/n_y-\lfloor y/n_y\rfloor,w=z/n_z-\lfloor z/n_z\rfloor$
+
+   样条函数的定义如下:
+   $$
+   B_0(u)=\frac{(1-u)^3}{6}\\
+   B_1(u)=\frac{3u^3-6u^2+4}{6}\\
+   B_2(u)=\frac{-3u^3+3u^2+3u+1}{6}\\
+   B_1(u)=\frac{u^3}{6}
+   $$
    
 
    ###### Control Framework
@@ -86,7 +107,7 @@ typora-copy-images-to: ../markdown
 
 3. ##### 变形结果：
 
-    
+     
 
 4. ##### 结果分析:
 
@@ -145,4 +166,5 @@ typora-copy-images-to: ../markdown
 -  **何占魁：** GUI实现，报告撰写
 
    ​
+
 
