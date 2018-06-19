@@ -1,6 +1,6 @@
 # coding=utf-8
 import vtk
-from FFD_v1 import obj_reader, FFD
+from FFD import obj_reader, FFD
 import numpy as np
 from time import time
 from ObjProcessing import resize_poly_data, color_on_points, read_color_from_ffd
@@ -133,7 +133,8 @@ class VtkModel(object):
 
         points = self.data.GetPoints()
         vertices = [points.GetPoint(i) for i in range(points.GetNumberOfPoints())]
-        self.ffd = FFD(num_x=self.xl + 1, num_y=self.yl + 1, num_z=self.zl + 1, object_points=vertices)
+        self.ffd = FFD(num_x=self.xl + 1, num_y=self.yl + 1, num_z=self.zl + 1, object_points=vertices,object_file=self.filename)
+        self.ffd.initial_ffd()
         mapper = vtk.vtkPolyDataMapper()
         mapper.SetInputData(self.data)
 
@@ -163,7 +164,8 @@ class VtkModel(object):
             
         points = self.data.GetPoints()
         vertices = [points.GetPoint(i) for i in range(points.GetNumberOfPoints())]
-        self.ffd = FFD(num_x=self.xl + 1, num_y=self.yl + 1, num_z=self.zl + 1, object_points=vertices)
+        self.ffd = FFD(num_x=self.xl + 1, num_y=self.yl + 1, num_z=self.zl + 1, object_points=vertices,object_file=self.filename)
+        self.ffd.initial_ffd()
         mapper = vtk.vtkPolyDataMapper()
         mapper.SetInputData(self.data)
 
