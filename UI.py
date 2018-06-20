@@ -90,14 +90,14 @@ class SimpleView(QtWidgets.QMainWindow):
         return
 
     def save_obj(self):
-        filename, ok = QFileDialog.getOpenFileName(self, 'Save .OBJ', '')
+        filename, ok = QFileDialog.getSaveFileName(self, 'Save .OBJ', '')
         if ok:
             new_vertices = None #How to get new vertices?
             self.model.ffd.save_obj(filename,new_vertices)
         return
 
     def save_ffd(self):
-        filename, ok = QFileDialog.getOpenFileName(self, 'Save .FFD', '')
+        filename, ok = QFileDialog.getSaveFileName(self, 'Save .FFD', '')
         if ok:
             self.model.ffd.save_cp(filename)
         return
