@@ -90,16 +90,18 @@ class FFD(object):
                  for y in range(self.cp_num_y)]
                 for x in range(self.cp_num_x)]
             self.object_points = {}
-            for x in range(self.cp_num_x):
-                for y in range(self.cp_num_y):
-                    for z in range(self.cp_num_z):
-                        self.object_points[(x, y, z)] = set()
+            # for x in range(self.cp_num_x):
+            #     for y in range(self.cp_num_y):
+            #         for z in range(self.cp_num_z):
+            #             self.object_points[(x, y, z)] = set()
+            self.object_points= []
             for point_index in range(len(self.obj_file.vertices)):
                 [x, y, z] = self.obj_file.vertices[point_index]
-                i = int((x - self.min_x) / self.nx)
-                j = int((y - self.min_y) / self.ny)
-                k = int((z - self.min_z) / self.nz)
-                self.object_points[(i, j, k)].add(((point_index, x, y, z)))
+                # i = int((x - self.min_x) / self.nx)
+                # j = int((y - self.min_y) / self.ny)
+                # k = int((z - self.min_z) / self.nz)
+                #self.object_points[(i, j, k)].add(((point_index, x, y, z)))
+                self.object_points.append(np.array([x,y,z]))
 
     def load_cp(self, path):
         f = open(path, 'r')
@@ -123,9 +125,10 @@ class FFD(object):
                             line = f.readline()
                             size.append(int(line.split('\n')[0]))
                         if self.dimension == 3:
-                            self.control_points = [[[None for z in range(size[2])]
-                                                    for y in range(size[1])]
-                                                   for x in range(size[0])]
+                            # self.control_points = [[[None for z in range(size[2])]
+                            #                         for y in range(size[1])]
+                            #                        for x in range(size[0])]
+                            continue
                         continue
                     else:
                         continue
@@ -142,9 +145,13 @@ class FFD(object):
                 else:
                     line = line.split('\t')[:-1]
                     for z in range(len(line)):
-                        self.control_points[x][y][z] = line[z].split(' ')
+                        self.control_points[x][y][z] = np.array(line[z].split(' '))
                     y += 1
-        return self.control_points
+        for x in range(len(self.control_points)):
+            for y in range(len(self.control_points[x])):
+                for z in range(len(self.control_points[x][y])):
+                    self.control_points_location[x][y][z] += self.control_points[x][y][z]
+        return
 
     def save_obj(self,filename,new_vertices):
         f = open(filename,'w')
