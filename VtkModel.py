@@ -134,8 +134,8 @@ class VtkModel(object):
         self.data = resize_poly_data(self.data, RESIZE)
         self.data_color = resize_poly_data(self.data_color, RESIZE)
 
-        points = self.data.GetPoints()
-        vertices = [points.GetPoint(i) for i in range(points.GetNumberOfPoints())]
+        self.points = self.data.GetPoints()
+        vertices = [self.points.GetPoint(i) for i in range(self.points.GetNumberOfPoints())]
         self.ffd = FFD(num_x=self.xl + 1, num_y=self.yl + 1, num_z=self.zl + 1, object_points=vertices,object_file=self.filename)
         self.ffd.initial_ffd()
         mapper = vtk.vtkPolyDataMapper()
@@ -165,8 +165,8 @@ class VtkModel(object):
             self.data = resize_poly_data(self.data, RESIZE)
             self.data_color = resize_poly_data(self.data_color, RESIZE)
             
-        points = self.data.GetPoints()
-        vertices = [points.GetPoint(i) for i in range(points.GetNumberOfPoints())]
+        self.points = self.data.GetPoints()
+        vertices = [self.points.GetPoint(i) for i in range(self.points.GetNumberOfPoints())]
         self.ffd = FFD(num_x=self.xl + 1, num_y=self.yl + 1, num_z=self.zl + 1, object_points=vertices,object_file=self.filename)
         self.ffd.initial_ffd()
         mapper = vtk.vtkPolyDataMapper()
@@ -316,7 +316,7 @@ class VtkModel(object):
         print('Calculating...')
         # 更新控制点
         self.ffd.update_control_point()
-        points = self.data.GetPoints()
+        self.points = self.data.GetPoints()
 
         # 进行计算 并将计算后更改后的数据存入data的points数据中
         t1 = time()
@@ -331,7 +331,7 @@ class VtkModel(object):
                         if 0<=u+i<self.ffd.cp_num_x and 0<=v+j<self.ffd.cp_num_y and 0<=w+k<self.ffd.cp_num_z:
                             for (id_index,x,y,z) in self.ffd.object_points[(u+i,v+j,w+k)]:
                                 tmp = self.ffd.T_local([x,y,z])
-                                points.SetPoint(id_index,tuple([x+tmp[0],y+tmp[1],z+tmp[2]]))
+                                self.points.SetPoint(id_index,tuple([x+tmp[0],y+tmp[1],z+tmp[2]]))
         print(time()-t1)
 
         # 构造mapper
