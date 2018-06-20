@@ -89,6 +89,7 @@ typora-copy-images-to: ./pics
 
 
 
+
    ###### Control Framework
 
    - **控制点生成**
@@ -125,6 +126,8 @@ typora-copy-images-to: ./pics
    OBJ文件的读入分为两个部分：
    1. 通过vtk的OBJReader读取OBJ文件进行画图
    2. 按照OBJ文件的规则读取每个点的坐标，存储到内存中，为FFD算法的计算做准备。
+
+   
 
    ###### 控制点位置确定
 
