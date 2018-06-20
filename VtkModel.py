@@ -7,7 +7,7 @@ from ObjProcessing import resize_poly_data, color_on_points, read_color_from_ffd
 
 
 class VtkModel(object):
-    def __init__(self, ren=None, iren=None, filename="zxh-ape.obj", RESIZE = 1, COLOR = True, RADISU = 0.05, xl = 4, yl = 4, zl = 4):
+    def __init__(self, ren=None, iren=None, filename="zxh-ape.obj", RESIZE = 1, COLOR = True, RADISU = 0.01, xl = 4, yl = 4, zl = 4):
         # 参数初始化
         self.ren = ren
         self.iren = iren
@@ -30,6 +30,9 @@ class VtkModel(object):
         # 初始化画图
         self.loadOBJ()
         self.drawFace()
+
+        self.RADISU = (self.ffd.max_x - self.ffd.min_x) * self.RADISU
+
         self.drawControlPoints()
         self.drawLines()
         self.addControlPointsObserver()

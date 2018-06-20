@@ -61,10 +61,10 @@ class FFD(object):
         self.cp_num_y = num_y
         self.cp_num_z = num_z
         self.obj_file = obj_reader(object_file)
-        self.object_points=object_points
+        self.object_points_initial=object_points
 
     def initial_ffd(self, initial=True):
-        tmp = copy.deepcopy(self.object_points)
+        tmp = copy.deepcopy(self.object_points_initial)
         tmp.sort(key=lambda x: x[0])
         self.min_x = tmp[0][0]
         self.max_x = tmp[-1][0]
@@ -95,8 +95,8 @@ class FFD(object):
                     for z in range(self.cp_num_z):
                         self.object_points[(x, y, z)] = set()
             #self.object_points= []
-            for point_index in range(len(self.obj_file.vertices)):
-                [x, y, z] = self.obj_file.vertices[point_index]
+            for point_index in range(len(self.object_points_initial)):
+                [x, y, z] = self.object_points_initial[point_index]
                 i = int((x - self.min_x) / self.nx)
                 j = int((y - self.min_y) / self.ny)
                 k = int((z - self.min_z) / self.nz)
