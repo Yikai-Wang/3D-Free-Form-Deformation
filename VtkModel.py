@@ -324,7 +324,7 @@ class VtkModel(object):
         print(time()-t1)
 
         # 构造mapper
-        self.ffd.changed_initial()
+        self.ffd.changed_reset()
         mapper = vtk.vtkPolyDataMapper()
         mapper.SetInputData(self.data)
 
