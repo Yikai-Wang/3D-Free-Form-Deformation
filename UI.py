@@ -102,7 +102,6 @@ class SimpleView(QtWidgets.QMainWindow):
             self.model.ffd.save_cp(filename)
         return
 
-
     def slot_color(self):
         reply = QMessageBox.question(self, 'Message',
             "The Function Only for OBJ with RGB\n Information. Are You Sure?", QMessageBox.Yes | 
