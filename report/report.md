@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: ./pics
+---
+
 # 数据可视化期末项目
 
 ---
@@ -12,15 +16,14 @@
 
 ## 任务：FFD三维形变平台 
 
->1. 基于VTK或其他显示库开发一个具有GUI功能的工具，用于实现3D Free-Form Deformation (FFD)的可视化和交互。要求可以人工设置调节每个控制点的位移，可以读入FFD文件(找吴富平助教拿zxhproj的.FFD文件格式)设置位移，输出FFD(.FFD格式);同时可视化形变场，如使用网格线和surface model(vtk polydata格式)。 
->2. 作业以小组形式:每个小组3个人。提交作业时只要一个代表提交就可以。记住:不要多人重复提交。 
->3. 提交内容包括: 
+>1. 作业以小组形式:每个小组3个人。提交作业时只要一个代表提交就可以。记住:不要多人重复提交。 
+>2. 提交内容包括: 
 >   - 报告:在报告中清晰描述问题和数据，数据处理的各个步骤及中间结果，代码结构，开发环境，可执行文件使用手册等细节问题。 
 >   - 代码:使用Python(Matlab或C/C++)开发;代码要有非常清晰的注释。 
 >   - 提交可执行文件 
 >   - 测试数据 
 >   - 鼓励用视频解释可视化操作过程与展示结果 
->4. 截止时间
+>3. 截止时间
 >   - 6月24日23:00 (16周结束)
 >   - 7月22日23:00 (20周结束，难度和完成分:(A/10)^2) 
 
@@ -28,9 +31,15 @@
 
 1. ##### 问题描述：
 
-   
+   基于VTK或其他显示库开发一个具有GUI功能的工具，用于实现3D Free-Form Deformation (FFD)的可视化和交互。
 
-2. ##### 数据描述：
+   功能要求：
+
+   - 可以人工设置调节每个控制点的位移
+   - 可以读入FFD文件设置位移，输出FFD(.FFD格式)
+   - 可视化形变场，如使用网格线和surface model(vtk polydata格式)
+
+2. ##### 数据描述：(@kai)
 
 
 
@@ -38,10 +47,6 @@
 #### 二、数据处理：
 
 1. ##### 算法描述：
-
-   ###### 3D Face Reconstruction
-
-   
 
    ###### 3D Free-Form Deformation (FFD)
 
@@ -70,7 +75,7 @@
    B_2(u)=\frac{-3u^3+3u^2+3u+1}{6}\\
    B_1(u)=\frac{u^3}{6}
    $$
-   
+
 
    ###### Control Framework
 
@@ -87,7 +92,7 @@
      - 在该回调函数中，会对每个控制点球体的位置进行查询，如果球体位置发生更新，则重新生成该球体与邻居结点的连线，并把该球体的新位置返回给FFD算法进行计算形变。
      - 获取FFD算法计算好后的数据，用`RemoveActor`去除之前显示的物体并用`AddActor`显示更新形变后的物体。
 
-   ###### GUI
+   ###### GUI(@he)
 
    
 
@@ -95,48 +100,133 @@
 
    ###### 利用照片重建3D人脸
 
+   - 利用论文 [Joint 3D Face Reconstruction and Dense Alignment with Position Map Regression Network](https://arxiv.org/abs/1803.07835) 提出的PRNet对照片中的人脸进行3D重建。
+
+   - 将人脸导出成带有纹理信息的obj文件，方便后期读入obj文件用FFD算法对人脸进行形变。
+
+     ![alignment](pics/reconstruct.jpg)
+
    
 
-   ###### Obj文件读入和纹理着色
+   ###### Obj文件读入和纹理着色(@kai读入 @he着色)
 
    
 
-   ###### 控制点位置确定
+   ###### 控制点位置确定(@kai)
 
    
 
 3. ##### 变形结果：
 
-     
+   ==放几个截图==
 
-4. ##### 结果分析:
+   ![image-20180620220609903](pics/image-20180620220609903.png)
+
+      
+
+   ==可以列举不同文件的形变耗时对比==
 
 
 
-​
 
-#### 三、代码结构：
 
-1. ##### 结构简述：
+#### 三、代码结构：(@kai @he)
 
-   
+##### FFD算法(@kai)
 
-2. ##### 函数详述：
 
-   1. ##### 辅助函数：
 
-      **辅助函数**即实现算法的工具函数，是对算法描述中出现的映射关系的代码化，同时具有模块性，可以进行替换调整，以探究不同的效果，该代码中有：
+##### 控制点框架
 
-   2. ##### 核心函数：
+```python
+class VtkModel(object):
+    def __init__(self):
+        # 参数初始化及进行初始化画图
 
-      **核心函数**是实现算法的主要函数，接口暴露给用户直接调用，不具有模块性。该代码中包含：
+    def xyz2index(self, x, y, z):
+        """
+        xyz为控制点在xyz轴方向分别的index
+        index为控制点在self.totalsphere这么多个球中的index
+        """
 
-   
+    def index2xyz(self, i):
+        """
+        index转xyz
+        """
+
+    def xyz2realworld(self, x, y, z):
+        """
+        xr, yr, zr为控制点在realworld中的坐标
+        该坐标由ffd算法根据读入进来的物体的大小自动生成 保证控制点为能恰好包裹住物体的长方体
+        """
+
+    def index2realworld(self, i):
+        """
+        找到第i号球对应的真实坐标
+        """
+
+    def neighbor(self, i):
+        """
+        找到第i号球对应的所有邻居球体的index
+        """
+
+    def loadOBJ(self):
+        """
+        初始化，加载模型.obj格式文件
+        """
+
+    def color(self):
+        """
+        上色：模型上色，仅对于带有RGB信息的.obj文件有效
+        """
+    
+    def resize(self, RESIZE):
+        """
+        调整尺寸，对PolyData进行减采样，仅对于Triangle类型有效
+        """
+
+    def drawFace(self, COLOR=False, RESIZE=1.0):
+        """
+        初始化 画出人脸 可以选择是否需要着色以及是否需要压缩图像
+        """
+
+    def drawControlPoints(self):
+        """
+        生成self.totalsphere这么多个控制点球体
+        """
+
+    def drawLines(self):
+        """
+        初始化画线 生成用于保存线的sourcelist, mapperlist, actorlist
+        获取每个控制点球体的位置并保存在spherelocation中
+        将每个控制点与其邻居结点连接起来
+        """
+
+    def addControlPointsObserver(self):
+        """
+        对于每一个球体控制点 添加Observer监听vtkRenderWindowInteractor里的事件
+        用户方法通过定义一个回调函数sphereCallback并将其作为参数传入AddObserver来定义
+        该函数将GUI交互器与用户自定义的渲染交互窗口交互器的方法关联起来
+        """
+        
+    def sphereCallback(self, obj, event):
+        """
+        对于控制点的回调交互函数
+        主要功能为: 检查控制点是否被拽动 连接新的线 去掉人脸并调用ffd算法生成新的人脸
+        """
+```
+
+
+##### GUI(@he)
+
+ 
+
+
 
 #### 四、开发环境：
 -  **系统环境：**macOS High Serria
 -  **开发语言：**Python>=3.5
--  **软件包：**Numpy>=1.13.0,  vtk
+-  **软件包：**Numpy>=1.13.0,  TensorFlow >= 1.4
 
 
 
