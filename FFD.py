@@ -90,18 +90,18 @@ class FFD(object):
                  for y in range(self.cp_num_y)]
                 for x in range(self.cp_num_x)]
             self.object_points = {}
-            # for x in range(self.cp_num_x):
-            #     for y in range(self.cp_num_y):
-            #         for z in range(self.cp_num_z):
-            #             self.object_points[(x, y, z)] = set()
-            self.object_points= []
+            for x in range(self.cp_num_x):
+                for y in range(self.cp_num_y):
+                    for z in range(self.cp_num_z):
+                        self.object_points[(x, y, z)] = set()
+            #self.object_points= []
             for point_index in range(len(self.obj_file.vertices)):
                 [x, y, z] = self.obj_file.vertices[point_index]
-                # i = int((x - self.min_x) / self.nx)
-                # j = int((y - self.min_y) / self.ny)
-                # k = int((z - self.min_z) / self.nz)
-                #self.object_points[(i, j, k)].add(((point_index, x, y, z)))
-                self.object_points.append(np.array([x,y,z]))
+                i = int((x - self.min_x) / self.nx)
+                j = int((y - self.min_y) / self.ny)
+                k = int((z - self.min_z) / self.nz)
+                self.object_points[(i, j, k)].add(((point_index, x, y, z)))
+                #self.object_points.append(np.array([x,y,z]))
 
     def load_cp(self, path):
         f = open(path, 'r')
