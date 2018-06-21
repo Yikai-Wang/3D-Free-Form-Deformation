@@ -18,7 +18,7 @@ class VtkModel(object):
         self.xl = xl
         self.yl = yl
         self.zl = zl
-        self.totalsphere = (self.xl + 1) * (self.yl + 1) * (self.zl + 1)
+        # self.totalsphere = (self.xl + 1) * (self.yl + 1) * (self.zl + 1)
 
         # 设置背景颜色
         self.ren.SetBackground(237, 237, 237)
@@ -35,24 +35,24 @@ class VtkModel(object):
         self.addControlPointsObserver()
 
 
-    def xyz2index(self, x, y, z):
-        """
-        xyz为控制点在xyz轴方向分别的index
-        index为控制点在self.totalsphere这么多个球中的index
-        For example, xyz2index(0,0,0)=0, xyz2index(0,0,1)=1
-        """
-        index = (self.xl + 1) * (self.yl + 1) * z + (self.xl + 1) * y + x
-        return index
+    # def xyz2index(self, x, y, z):
+    #     """
+    #     xyz为控制点在xyz轴方向分别的index
+    #     index为控制点在self.totalsphere这么多个球中的index
+    #     For example, xyz2index(0,0,0)=0, xyz2index(0,0,1)=1
+    #     """
+    #     index = (self.xl + 1) * (self.yl + 1) * z + (self.xl + 1) * y + x
+    #     return index
 
 
-    def index2xyz(self, i):
-        """
-        For example, index2xyz(1)=(0,0,1)
-        """
-        z = i // ((self.xl + 1) * (self.yl + 1))
-        y = (i - z * (self.xl + 1) * (self.yl + 1)) // (self.xl + 1)
-        x = i % (self.xl + 1)
-        return x, y, z
+    # def index2xyz(self, i):
+    #     """
+    #     For example, index2xyz(1)=(0,0,1)
+    #     """
+    #     z = i // ((self.xl + 1) * (self.yl + 1))
+    #     y = (i - z * (self.xl + 1) * (self.yl + 1)) // (self.xl + 1)
+    #     x = i % (self.xl + 1)
+    #     return x, y, z
 
 
     def xyz2realworld(self, x, y, z):
@@ -64,37 +64,43 @@ class VtkModel(object):
         return xr, yr, zr
 
 
-    def index2realworld(self, i):
-        """
-        找到第i号球对应的真实坐标
-        """
-        'Input an index. Output the position of that point in realworld. 0<=xr<=1.'
-        if i >= (self.xl + 1) * (self.yl + 1) * (self.zl + 1):
-            print('Error! Index not exists!')
-            return 0
-        x, y, z = self.index2xyz(i)
-        xr, yr, zr = self.xyz2realworld(x, y, z)
-        return xr, yr, zr
+    # def index2realworld(self, i):
+    #     """
+    #     找到第i号球对应的真实坐标
+    #     """
+    #     'Input an index. Output the position of that point in realworld. 0<=xr<=1.'
+    #     if i >= (self.xl + 1) * (self.yl + 1) * (self.zl + 1):
+    #         print('Error! Index not exists!')
+    #         return 0
+    #     x, y, z = self.index2xyz(i)
+    #     xr, yr, zr = self.xyz2realworld(x, y, z)
+    #     return xr, yr, zr
 
 
-    def neighbor(self, i):
+    def neighbor(self, i, j, k):
         """
         找到第i号球对应的所有邻居球体的index
         """
-        x, y, z = self.index2xyz(i)
+        # x, y, z = self.index2xyz(i)
         n = []
-        if x > 0:
-            n.append(self.xyz2index(x - 1, y, z))
-        if x < self.xl:
-            n.append(self.xyz2index(x + 1, y, z))
-        if y > 0:
-            n.append(self.xyz2index(x, y - 1, z))
-        if y < self.yl:
-            n.append(self.xyz2index(x, y + 1, z))
-        if z > 0:
-            n.append(self.xyz2index(x, y, z - 1))
-        if z < self.zl:
-            n.append(self.xyz2index(x, y, z + 1))
+        if i > 0:
+            # n.append(self.xyz2index(x - 1, y, z))
+            n.append((i-1, j, k))
+        if i < self.xl:
+            n.append((i+1, j, k))
+            # n.append(self.xyz2index(x + 1, y, z))
+        if j > 0:
+            n.append((i, j-1, k))
+            # n.append(self.xyz2index(x, y - 1, z))
+        if j < self.yl:
+            # n.append(self.xyz2index(x, y + 1, z))
+            n.append((i, j+1, k))
+        if k > 0:
+            n.append((i, j, k-1))
+            # n.append(self.xyz2index(x, y, z - 1))
+        if k < self.zl:
+            # n.append(self.xyz2index(x, y, z + 1))
+            n.append((i, j, k+1))
         return n
         
 
@@ -173,30 +179,39 @@ class VtkModel(object):
         self.actor.SetMapper(mapper)
         self.ren.AddActor(self.actor)
 
+
     def drawControlPoints(self):
         """
         生成self.totalsphere这么多个控制点球体
         """
         self.spherelist = []
-        for i in range(self.totalsphere):
-            # 定义一个球状体widget
-            sphereWidget = vtk.vtkSphereWidget()
-            # 渲染窗口交互器实例iren是一个3D的球状体widget
-            sphereWidget.SetInteractor(self.iren)
-            # 从index对应到真实空间中的xyz坐标
-            x, y, z = self.index2realworld(i)
-            # 设置球状体在真实空间中的xyz坐标
-            sphereWidget.SetCenter(x, y, z)
-            # 设置球状体的半径大小
-            sphereWidget.SetRadius(self.RADISU)
-            # 设置球面的颜色 仍然是通过GetProperty来获取属性并进行设置
-            # sphereWidget.GetSphereProperty().SetColor(0, 1.0, 0)
-            # 设置填充球状体的表面 三种基本的属性设置方式：点方式，网格方式和面方式
-            sphereWidget.SetRepresentationToSurface()
-            # 要是没有这一行 球状体就不会显示出来了
-            sphereWidget.On()
-            # 将球状体添加到球状体的列表中
-            self.spherelist.append(sphereWidget)
+        for i in range(self.xl+1):
+            spherelist_j = []
+            for j in range(self.yl+1):
+                spherelist_k = []
+                for k in range(self.zl+1):
+                    # 定义一个球状体widget
+                    sphereWidget = vtk.vtkSphereWidget()
+                    # 渲染窗口交互器实例iren是一个3D的球状体widget
+                    sphereWidget.SetInteractor(self.iren)
+                    # 从index对应到真实空间中的xyz坐标
+                    # x, y, z = self.index2realworld(i)
+                    x, y, z = self.xyz2realworld(i, j, k)
+                    # 设置球状体在真实空间中的xyz坐标
+                    sphereWidget.SetCenter(x, y, z)
+                    # 设置球状体的半径大小
+                    sphereWidget.SetRadius(self.RADISU)
+                    # 设置球面的颜色 仍然是通过GetProperty来获取属性并进行设置
+                    # sphereWidget.GetSphereProperty().SetColor(0, 1.0, 0)
+                    # 设置填充球状体的表面 三种基本的属性设置方式：点方式，网格方式和面方式
+                    sphereWidget.SetRepresentationToSurface()
+                    # 要是没有这一行 球状体就不会显示出来了
+                    sphereWidget.On()
+                    # 将球状体添加到球状体的列表中
+                    spherelist_k.append(sphereWidget)
+                spherelist_j.append(spherelist_k)
+            self.spherelist.append(spherelist_j)
+
 
 
     def drawLines(self):
@@ -209,41 +224,74 @@ class VtkModel(object):
         self.mapperlist = []
         self.actorlist = []
         # 多初始化一些 存到list里面 因为线的总数是比球的总数多的
-        for i in range((self.xl+1) * self.totalsphere):
-            self.sourcelist.append(vtk.vtkLineSource())
-            # 添加vtkPolyDataMapper对象
-            self.mapperlist.append(vtk.vtkPolyDataMapper())
-            # 创建actor对象（要渲染的对象） 
-            self.actorlist.append(vtk.vtkActor())
+        # for i in range(self.totalsphere):
+        for i in range(self.xl+1):
+            sourcelist_j = []
+            mapperlist_j = []
+            actorlist_j = []
+            for j in range(self.yl+1):
+                sourcelist_k = []
+                mapperlist_k = []
+                actorlist_k = []
+                for k in range(self.zl+1):                    
+                    sourceline = []
+                    mapperline = []
+                    actorline = []
 
-        count = 0
+                    for i in range(6):
+                        sourceline.append(vtk.vtkLineSource())
+                        mapperline.append(vtk.vtkPolyDataMapper())
+                        actorline.append(vtk.vtkActor())
+                    
+                    sourcelist_k.append(sourceline)
+                    mapperlist_k.append(mapperline)
+                    actorlist_k.append(actorline)
+
+                sourcelist_j.append(sourcelist_k)
+                mapperlist_j.append(mapperlist_k)
+                actorlist_j.append(actorlist_k)
+            
+            self.sourcelist.append(sourcelist_j)
+            # 添加vtkPolyDataMapper对象
+            self.mapperlist.append(mapperlist_j)
+            # 创建actor对象（要渲染的对象） 
+            self.actorlist.append(actorlist_j)
+
         self.spherelocation = []
-        for i in range(self.totalsphere):
-            # 对于一个球体i 获取球心的位置
-            x1, y1, z1 = self.spherelist[i].GetCenter()
-            # 初始化时记录球体的位置
-            self.spherelocation.append([x1, y1, z1])
-            n = self.neighbor(i)
-            for j in n:
-                # 对于这个球体i的邻居j 获取球心的位置
-                x2, y2, z2 = self.spherelist[j].GetCenter()
-                # 设置一条线的起点和终点
-                self.sourcelist[count].SetPoint1(x1, y1, z1)
-                self.sourcelist[count].SetPoint2(x2, y2, z2)
-                # Filter的连接可以通过方法SetInputConnection()和GetOutputPort()
-                # 输出通过方法SetInputConnection()设置为vtkPolyDataMapper对象的输入
-                self.mapperlist[count].SetInputConnection(self.sourcelist[count].GetOutputPort())
-                # 设置定义几何信息的mapper到这个actor里
-                # 在里 mapper的类型是vtkPolyDataMapper 也就是用类似点、线、多边形(Polygons)等几何图元进行渲染的
-                self.actorlist[count].SetMapper(self.mapperlist[count])
-                # vtkActor.GetProperty()->SetColor() not working for me
-                # ref: http://vtk.1045678.n5.nabble.com/vtkActor-GetProperty-gt-SetColor-not-working-for-me-td5722373.html
-                self.actorlist[count].GetMapper().ScalarVisibilityOff()
-                # 设置Actor的颜色 该方法用RGB值来设置一个Actor的红、绿、蓝分量的颜色 每个分量的取值范围从0到1
-                self.actorlist[count].GetProperty().SetColor(0, 1.0, 0)
-                # 使用renderer的方法AddActor()把要渲染的actor加入到renderer中去。
-                self.ren.AddActor(self.actorlist[count])
-                count += 1
+        for i in range(self.xl+1):
+            sphereloc_j = []
+            for j in range(self.yl+1):
+                sphereloc_k = []
+                for k in range(self.zl+1):     
+                    # 对于一个球体i 获取球心的位置
+                    x1, y1, z1 = self.spherelist[i][j][k].GetCenter()
+                    # 初始化时记录球体的位置
+                    sphereloc_k.append([x1, y1, z1])
+                    n = self.neighbor(i, j, k)
+                    count = 0
+                    for (inei, jnei, knei) in n:
+                        # 对于这个球体i的邻居j 获取球心的位置
+                        x2, y2, z2 = self.spherelist[inei][jnei][knei].GetCenter()
+                        # 设置一条线的起点和终点
+                        self.sourcelist[i][j][k][count].SetPoint1(x1, y1, z1)
+                        self.sourcelist[i][j][k][count].SetPoint2(x2, y2, z2)
+                        # Filter的连接可以通过方法SetInputConnection()和GetOutputPort()
+                        # 输出通过方法SetInputConnection()设置为vtkPolyDataMapper对象的输入
+                        self.mapperlist[i][j][k][count].SetInputConnection(self.sourcelist[i][j][k][count].GetOutputPort())
+                        # 设置定义几何信息的mapper到这个actor里
+                        # 在里 mapper的类型是vtkPolyDataMapper 也就是用类似点、线、多边形(Polygons)等几何图元进行渲染的
+                        self.ren.RemoveActor(self.actorlist[i][j][k][count])
+                        self.actorlist[i][j][k][count].SetMapper(self.mapperlist[i][j][k][count])
+                        # vtkActor.GetProperty()->SetColor() not working for me
+                        # ref: http://vtk.1045678.n5.nabble.com/vtkActor-GetProperty-gt-SetColor-not-working-for-me-td5722373.html
+                        self.actorlist[i][j][k][count].GetMapper().ScalarVisibilityOff()
+                        # 设置Actor的颜色 该方法用RGB值来设置一个Actor的红、绿、蓝分量的颜色 每个分量的取值范围从0到1
+                        self.actorlist[i][j][k][count].GetProperty().SetColor(0, 1.0, 0)
+                        # 使用renderer的方法AddActor()把要渲染的actor加入到renderer中去。
+                        self.ren.AddActor(self.actorlist[i][j][k][count])
+                        count += 1
+                sphereloc_j.append(sphereloc_k)
+            self.spherelocation.append(sphereloc_j)
 
 
     def addControlPointsObserver(self):
@@ -252,8 +300,11 @@ class VtkModel(object):
         用户方法通过定义一个回调函数sphereCallback并将其作为参数传入AddObserver来定义
         该函数将GUI交互器与用户自定义的渲染交互窗口交互器的方法关联起来
         """
-        for i in range(self.totalsphere):
-            self.spherelist[i].AddObserver("InteractionEvent", self.sphereCallback)
+        # for i in range(self.totalsphere):
+        for i in range(self.xl+1):
+            for j in range(self.yl+1):
+                for k in range(self.zl+1):
+                    self.spherelist[i][j][k].AddObserver("InteractionEvent", self.sphereCallback)
 
 
     def sphereCallback(self, obj, event):
@@ -262,52 +313,59 @@ class VtkModel(object):
         """
         self._sphereCallback()
 
+
     def sphereQt(self, xyz_index, xyz):
-        sphere_index = self.xyz2index(*xyz_index)
-        self.spherelist[sphere_index].SetCenter(xyz)
+        # sphere_index = self.xyz2index(*xyz_index)
+        i, j, k = xyz_index
+        self.spherelist[i][j][k].SetCenter(xyz)
         self._sphereCallback()
 
+
     def _sphereCallback(self):
-        count = 0
-        for i in range(self.totalsphere):
-            # 对于一个球体i 获取它之前的位置
-            x0, y0, z0 = self.spherelocation[i]
-            # 对于一个球体i 获取它现在球心的位置
-            x1, y1, z1 = self.spherelist[i].GetCenter()
+        # for i in range(self.totalsphere):
+        for i in range(self.xl+1):
+            for j in range(self.yl+1):
+                for k in range(self.zl+1):
+                    # 对于一个球体i 获取它之前的位置
+                    x0, y0, z0 = self.spherelocation[i][j][k]
+                    # 对于一个球体i 获取它现在球心的位置
+                    x1, y1, z1 = self.spherelist[i][j][k].GetCenter()
 
-            # 如果球体的位置发生改变 即该控制点被拖动
-            if x1!=x0 or y1!=y0 or z1!=z0:
-                print('Before location', x0, y0, z0)
-                print("New location", x1, y1, z1)
-                # 将更新后的坐标点传给ffd算法保存下来
-                i, j, k = self.index2xyz(i)
-                print(i,j,k)
-                self.ffd.changed_update((i, j, k), np.array([x1, y1, z1]))
-                # 更新spherelocation里面保存的每一个球体的位置
-                self.spherelocation[i] = [x1, y1, z1]
+                    # 如果球体的位置发生改变 即该控制点被拖动
+                    if x1!=x0 and y1!=y0 and z1!=z0:
+                        print('Before location', x0, y0, z0)
+                        print("New location", x1, y1, z1)
+                        # 将更新后的坐标点传给ffd算法保存下来
+                        # i, j, k = self.index2xyz(i)
+                        print(i ,j, k)
+                        self.ffd.changed_update((i, j, k), np.array([x1, y1, z1]))
+                        # 更新spherelocation里面保存的每一个球体的位置
+                        self.spherelocation[i][j][k] = [x1, y1, z1]
 
-            # 计算邻居结点 方便连线
-            n = self.neighbor(i)
-            for j in n:
-                # 对于这个球体i的邻居j 获取球心的位置
-                x2, y2, z2 = self.spherelist[j].GetCenter()
-                # 设置一条线的起点和终点
-                self.sourcelist[count].SetPoint1(x1, y1, z1)
-                self.sourcelist[count].SetPoint2(x2, y2, z2)
-                # Filter的连接可以通过方法SetInputConnection()和GetOutputPort()
-                # 输出通过方法SetInputConnection()设置为vtkPolyDataMapper对象的输入
-                self.mapperlist[count].SetInputConnection(self.sourcelist[count].GetOutputPort())
-                # 设置定义几何信息的mapper到这个actor里
-                # 在里 mapper的类型是vtkPolyDataMapper 也就是用类似点、线、多边形(Polygons)等几何图元进行渲染的
-                self.actorlist[count].SetMapper(self.mapperlist[count])
-                # vtkActor.GetProperty()->SetColor() not working for me
-                # ref: http://vtk.1045678.n5.nabble.com/vtkActor-GetProperty-gt-SetColor-not-working-for-me-td5722373.html
-                self.actorlist[count].GetMapper().ScalarVisibilityOff()
-                # 设置Actor的颜色 该方法用RGB值来设置一个Actor的红、绿、蓝分量的颜色 每个分量的取值范围从0到1
-                self.actorlist[count].GetProperty().SetColor(0, 1.0, 0)
-                # 使用renderer的方法AddActor()把要渲染的actor加入到renderer中去。
-                self.ren.AddActor(self.actorlist[count])
-                count += 1
+                    # 计算邻居结点 方便连线
+                    n = self.neighbor(i, j, k)
+                    count = 0
+                    for (inei, jnei, knei) in n:
+                        # 对于这个球体i的邻居j 获取球心的位置
+                        x2, y2, z2 = self.spherelist[inei][jnei][knei].GetCenter()
+                        # 设置一条线的起点和终点
+                        self.sourcelist[i][j][k][count].SetPoint1(x1, y1, z1)
+                        self.sourcelist[i][j][k][count].SetPoint2(x2, y2, z2)
+                        # Filter的连接可以通过方法SetInputConnection()和GetOutputPort()
+                        # 输出通过方法SetInputConnection()设置为vtkPolyDataMapper对象的输入
+                        self.mapperlist[i][j][k][count].SetInputConnection(self.sourcelist[i][j][k][count].GetOutputPort())
+                        # 设置定义几何信息的mapper到这个actor里
+                        # 在里 mapper的类型是vtkPolyDataMapper 也就是用类似点、线、多边形(Polygons)等几何图元进行渲染的
+                        self.ren.RemoveActor(self.actorlist[i][j][k][count])
+                        self.actorlist[i][j][k][count].SetMapper(self.mapperlist[i][j][k][count])
+                        # vtkActor.GetProperty()->SetColor() not working for me
+                        # ref: http://vtk.1045678.n5.nabble.com/vtkActor-GetProperty-gt-SetColor-not-working-for-me-td5722373.html
+                        self.actorlist[i][j][k][count].GetMapper().ScalarVisibilityOff()
+                        # 设置Actor的颜色 该方法用RGB值来设置一个Actor的红、绿、蓝分量的颜色 每个分量的取值范围从0到1
+                        self.actorlist[i][j][k][count].GetProperty().SetColor(0, 1.0, 0)
+                        # 使用renderer的方法AddActor()把要渲染的actor加入到renderer中去。
+                        self.ren.AddActor(self.actorlist[i][j][k][count])
+                        count += 1
             
         print('Begin FFD...')
         print('Calculating...')
@@ -321,6 +379,7 @@ class VtkModel(object):
         #     tmp = self.ffd.T_local(self.ffd.object_points[i])
         #     if tmp[0]!=0 or tmp[1]!=0 or tmp[2]!=0:
         #         points.SetPoint(i,tuple(self.ffd.object_points[i]+tmp))
+        
         for (u,v,w) in self.ffd.changed.keys():
             for i in range(-2,2):
                 for j in range(-2,2):
@@ -354,7 +413,7 @@ if __name__ == "__main__":
     renWin.AddRenderer(ren)
     iren.SetRenderWindow(renWin)
 
-    VtkModel(ren=ren, iren=iren)
+    VtkModel(ren=ren, iren=iren, filename='face.obj')
 
     iren.Initialize()
     renWin.Render()
