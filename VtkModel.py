@@ -30,8 +30,10 @@ class VtkModel(object):
         self.loadOBJ()
         self.drawFace()
 
+        # 根据load进来的物体大小 自适应设置球体的半径大小
         self.RADISU = (self.ffd.max_x - self.ffd.min_x) * self.RADISU
 
+        # 画点画线 增加监听器
         self.drawControlPoints()
         self.drawLines()
         self.addControlPointsObserver()
@@ -144,8 +146,9 @@ class VtkModel(object):
         """
         生成控制点球体
         """
-        # 初始化三维数组
+        # 初始化列表 保存每一个控制球体 列表为i*j*k维 因为有i*j*k个球体
         self.spherelist = [[[0 for zcol in range(self.zl+1)] for col in range(self.yl+1)] for row in range(self.xl+1)]
+        
         for i, j, k in ((a, b, c) for a in range(self.xl+1) for b in range(self.yl+1) for c in range(self.zl+1)):
             # 定义一个球状体widget
             sphereWidget = vtk.vtkSphereWidget()
@@ -172,13 +175,12 @@ class VtkModel(object):
         获取每个控制点球体的位置并保存在spherelocation中
         将每个控制点与其邻居结点连接起来
         """
-        # 初始化列表 保存边与边的关系 
-        # 为i*j*k*6维 因为一个球最多有6个邻居
+        # 初始化列表 这些列表用于保存边与边的关系 列表为i*j*k*6维 因为有i*j*k个球体 一个球最多有6个邻居
         self.sourcelist = [[[[vtk.vtkLineSource() for nei in range(6)] for zcol in range(self.zl+1)] for col in range(self.yl+1)] for row in range(self.xl+1)]
         self.mapperlist = [[[[vtk.vtkPolyDataMapper() for nei in range(6)] for zcol in range(self.zl+1)] for col in range(self.yl+1)] for row in range(self.xl+1)]
         self.actorlist = [[[[vtk.vtkActor() for nei in range(6)] for zcol in range(self.zl+1)] for col in range(self.yl+1)] for row in range(self.xl+1)]
         
-        # 初始化列表 实时保存和更新球的坐标
+        # 初始化列表 实时保存和更新球的坐标 列表为i*j*k维 因为有i*j*k个球体
         self.spherelocation = [[[0 for zcol in range(self.zl+1)] for col in range(self.yl+1)] for row in range(self.xl+1)]
         
         for i, j, k in ((a, b, c) for a in range(self.xl+1) for b in range(self.yl+1) for c in range(self.zl+1)):
@@ -236,7 +238,7 @@ class VtkModel(object):
             # 对于一个球体i 获取它现在球心的位置
             x1, y1, z1 = self.spherelist[i][j][k].GetCenter()
 
-            # 如果球体的位置发生改变 即该控制点被拖动
+            # 只对发生改变的球体进行计算 如果球体的位置发生改变 即该控制点被拖动
             if x1!=x0 and y1!=y0 and z1!=z0:
                 print('Before location', x0, y0, z0)
                 print("New location", x1, y1, z1)
@@ -250,9 +252,9 @@ class VtkModel(object):
                 n = self.neighbor(i, j, k)
                 count = 0
                 for (inei, jnei, knei) in n:
-                    # 对于这个球体i的邻居j 获取球心的位置
+                    # 对于这个移动过的球体i的邻居j 获取球心的位置
                     x2, y2, z2 = self.spherelist[inei][jnei][knei].GetCenter()
-                    # 设置一条线的起点和终点
+                    # 设置控制点移动后的新位置与邻居结点连线的起点和终点
                     self.sourcelist[i][j][k][count].SetPoint1(x1, y1, z1)
                     self.sourcelist[i][j][k][count].SetPoint2(x2, y2, z2)
                     # Filter的连接可以通过方法SetInputConnection()和GetOutputPort()
@@ -279,7 +281,7 @@ class VtkModel(object):
         self.ffd.update_control_point()
         self.points = self.data.GetPoints()
 
-        # 进行计算 并将计算后更改后的数据存入data的points数据中
+        # 只对需要改变的点进行计算 并将计算后更改后的数据存入data的points数据中
         t1 = time()
         for u, v, w in self.ffd.changed.keys():
             for a, b, c in ((a, b, c) for a in range(-2,2) for b in range(-2,2) for c in range(-2,2)):
