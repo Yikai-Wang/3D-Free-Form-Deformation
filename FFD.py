@@ -1,6 +1,6 @@
 import numpy as np
 import copy
-
+import gc
 
 class obj_reader(object):
     def __init__(self, filename, swapyz=False):
@@ -61,10 +61,10 @@ class FFD(object):
         self.cp_num_y = num_y
         self.cp_num_z = num_z
         self.obj_file = obj_reader(object_file)
-        self.object_points=object_points
+        self.object_points_initial=object_points
 
     def initial_ffd(self, initial=True):
-        tmp = copy.deepcopy(self.object_points)
+        tmp = copy.deepcopy(self.object_points_initial)
         tmp.sort(key=lambda x: x[0])
         self.min_x = tmp[0][0]
         self.max_x = tmp[-1][0]
@@ -74,6 +74,7 @@ class FFD(object):
         tmp.sort(key=lambda x: x[2])
         self.min_z = tmp[0][2]
         self.max_z = tmp[-1][2]
+        del tmp
         self.nx = (self.max_x - self.min_x) / (self.cp_num_x - 1)
         self.ny = (self.max_y - self.min_y) / (self.cp_num_y - 1)
         self.nz = (self.max_z - self.min_z) / (self.cp_num_z - 1)
@@ -89,18 +90,23 @@ class FFD(object):
                   for z in range(self.cp_num_z)]
                  for y in range(self.cp_num_y)]
                 for x in range(self.cp_num_x)]
+            try:
+                del self.object_points
+                # gc.collect()
+            except:
+                pass
             self.object_points = {}
             for x in range(self.cp_num_x):
                 for y in range(self.cp_num_y):
                     for z in range(self.cp_num_z):
                         self.object_points[(x, y, z)] = set()
             #self.object_points= []
-            for point_index in range(len(self.obj_file.vertices)):
-                [x, y, z] = self.obj_file.vertices[point_index]
+            for point_index in range(len(self.object_points_initial)):
+                [x, y, z] = self.object_points_initial[point_index]
                 i = int((x - self.min_x) / self.nx)
                 j = int((y - self.min_y) / self.ny)
                 k = int((z - self.min_z) / self.nz)
-                self.object_points[(i, j, k)].add(((point_index, x, y, z)))
+                self.object_points[(i, j, k)].add((point_index, x, y, z))
                 #self.object_points.append(np.array([x,y,z]))
 
     def load_cp(self, path):
@@ -145,12 +151,14 @@ class FFD(object):
                 else:
                     line = line.split('\t')[:-1]
                     for z in range(len(line)):
-                        self.control_points[x][y][z] = np.array(line[z].split(' '))
+                        self.control_points[x][y][z] = np.array([np.float(i) for i in line[z].split(' ')])
+                        #self.control_points[x][y][z] = np.array([np.float(i) for i in line[z].split(' ')]）
                     y += 1
         for x in range(len(self.control_points)):
             for y in range(len(self.control_points[x])):
                 for z in range(len(self.control_points[x][y])):
-                    self.control_points_location[x][y][z] += self.control_points[x][y][z]
+                    if self.control_points[x][y][z][0] != 0 or self.control_points_location[x][y][z][1] != 0 or self.control_points_location[x][y][z][2] != 0:
+                        self.changed[(x,y,z)]=self.control_points[x][y][z]+self.control_points_location[x][y][z]
         return
 
     def save_obj(self,filename,new_vertices):
@@ -225,6 +233,7 @@ class FFD(object):
         return result
 
     def changed_reset(self):
+        del self.changed
         self.changed = {}
 
     def changed_update(self, id, location):
