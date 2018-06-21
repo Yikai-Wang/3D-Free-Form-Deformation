@@ -222,7 +222,11 @@ class VtkModel(object):
 
     def sphereCallback(self, obj, event):
         """
-        对于控制点的回调交互函数 主要功能为: 检查控制点是否被拽动 连接新的线 去掉人脸并调用ffd算法生成新的人脸
+        对于控制点的回调交互函数
+        主要功能为: 
+        	检查控制点是否被拽动
+        	对于被拽动的控制点: 去掉旧的邻居结点连线并增加新的连线
+        					 去掉旧的人脸并调用ffd算法生成新的人脸
         """
         self._sphereCallback()
 
@@ -261,8 +265,8 @@ class VtkModel(object):
                     # 输出通过方法SetInputConnection()设置为vtkPolyDataMapper对象的输入
                     self.mapperlist[i][j][k][count].SetInputConnection(self.sourcelist[i][j][k][count].GetOutputPort())
                     # 去掉之前的 邻居结点之前和该位置发生移动的控制点 生成的旧线
-                    nei_of_nei = self.neighbor(inei, jnei, knei).index((i, j, k))
-                    self.ren.RemoveActor(self.actorlist[inei][jnei][knei][nei_of_nei])
+                    # nei_of_nei = self.neighbor(inei, jnei, knei).index((i, j, k))
+                    # self.ren.RemoveActor(self.actorlist[inei][jnei][knei][nei_of_nei])
                     # 设置定义几何信息的mapper到这个actor里
                     # 在里 mapper的类型是vtkPolyDataMapper 也就是用类似点、线、多边形(Polygons)等几何图元进行渲染的
                     self.actorlist[i][j][k][count].SetMapper(self.mapperlist[i][j][k][count])
@@ -270,7 +274,7 @@ class VtkModel(object):
                     # ref: http://vtk.1045678.n5.nabble.com/vtkActor-GetProperty-gt-SetColor-not-working-for-me-td5722373.html
                     self.actorlist[i][j][k][count].GetMapper().ScalarVisibilityOff()
                     # 设置Actor的颜色 该方法用RGB值来设置一个Actor的红、绿、蓝分量的颜色 每个分量的取值范围从0到1
-                    self.actorlist[i][j][k][count].GetProperty().SetColor(0, 1.0, 0)
+                    self.actorlist[i][j][k][count].GetProperty().SetColor(1.0, 0, 0)
                     # 使用renderer的方法AddActor()把要渲染的actor加入到renderer中去。
                     self.ren.AddActor(self.actorlist[i][j][k][count])
                     count += 1
