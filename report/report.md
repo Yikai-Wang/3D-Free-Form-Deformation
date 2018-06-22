@@ -311,4 +311,13 @@ class VtkModel(object):
 
    ​
 
+## 致谢：
+
+衷心感谢下列优秀开源项目：
+
+[PRNet](https://github.com/YadiraF/PRNet)
+
+[3D-FFD-in-VTK](https://github.com/Anthony-Xu/3D-FFD-in-VTK)
+
+感谢庄吓海老师和徐辉学长在我们做pj的过程中对我们的帮助！
 
