@@ -26,7 +26,7 @@ class SimpleView(QtWidgets.QMainWindow):
         self.createActions()
         self.createMenus()
         #self.initUI()
-        self.filename = "face.obj"
+        self.filename = "zxh-ape.obj"
         self.initVTK()
         self.showAll()
 
@@ -58,7 +58,7 @@ class SimpleView(QtWidgets.QMainWindow):
         self.dots_Action = QAction("Dots", self, triggered=self.slot_dots)
 
     def createMenus(self):
-        #self.menuBar().setNativeMenuBar(False)
+        self.menuBar().setNativeMenuBar(False)
         self.loadMenu = self.menuBar().addMenu('Load')
         self.saveMenu = self.menuBar().addMenu('Save')
         self.modifyMenu = self.menuBar().addMenu('Modify')
