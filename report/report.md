@@ -232,6 +232,33 @@ $$
 
 ##### FFD算法(@kai)
 
+```python
+class obj_reader(object):
+    def __init__(self, filename, swapyz=False):
+        """加载obj文件"""
+class FFD(object)
+    def __init__(self, num_x, num_y, num_z, object_file,object_points):
+        """num_x,num_y,num_z,各维度控制点个数
+        object_file,obj文件路径
+        object_points,obj文件点数据"""
+    def initial_ffd(self,initial=True):
+        """初始化ffd"""
+    def load_cp(self,path):
+        """实现加载储存控制点改变值的FFD文件"""
+    def save_cp(self,filename):
+        """实现将控制点改变值存入FFD文件"""
+    def B(self,i,u):
+        """计算样条函数值"""
+    def T_local(self,object_point):
+        """计算FFD"""
+    def changed_reset(self):
+        """重置被改变的控制点以避免重复计算"""
+    def changed_update(self,id,location):
+        """更新被改变的控制点"""
+    def update_control_point(self):
+        """更新控制点位置"""
+```
+
 
 
 ##### 控制点框架
@@ -352,7 +379,7 @@ class SimpleView(QtWidgets.QMainWindow):
 
 #### 七、合作者贡献：
 
--  **王艺楷：**FFD算法实现，算法优化，报告撰写
+-  **王艺楷：**FFD算法实现，参与GUI实现，算法优化，报告撰写
 
 -  **冉诗菡：**控制点算法及交互实现，算法优化，报告撰写
 
@@ -360,4 +387,13 @@ class SimpleView(QtWidgets.QMainWindow):
 
    ​
 
+## 致谢：
+
+衷心感谢下列优秀开源项目：
+
+[PRNet](https://github.com/YadiraF/PRNet)
+
+[3D-FFD-in-VTK](https://github.com/Anthony-Xu/3D-FFD-in-VTK)
+
+感谢庄吓海老师和徐辉学长在我们做pj的过程中对我们的帮助！
 
