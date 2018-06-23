@@ -3,15 +3,11 @@ import copy
 import gc
 
 class obj_reader(object):
-    def __init__(self, filename, swapyz=False):
+    def __init__(self, filename):
         """Loads a Wavefront OBJ file. """
         self.vertices = []
-        self.normals = []
-        self.texcoords = []
         self.faces = []
-        self.mtl = None
         self.tmp = []
-        material = None
         for line in open(filename, "r"):
             if line.startswith('#'): continue
             values = line.split()
@@ -19,38 +15,10 @@ class obj_reader(object):
             if values[0] == 'v':
                 v = [float(x) for x in values[1:4]]
                 t = [float(x) for x in values[4:]]
-                if swapyz:
-                    v = v[0], v[2], v[1]
                 self.vertices.append(v)
                 self.tmp.append(t)
-            elif values[0] == 'vn':
-                v = [float(x) for x in values[1:4]]
-                if swapyz:
-                    v = v[0], v[2], v[1]
-                self.normals.append(v)
-            elif values[0] == 'vt':
-                v = [float(x) for x in values[1:3]]
-                self.texcoords.append(v)
-            elif values[0] in ('usemtl', 'usemat'):
-                material = values[1]
-            elif values[0] == 'mtllib':
-                self.mtl = [filename, values[1]]
             elif values[0] == 'f':
                 face = []
-                texcoords = []
-                norms = []
-                for v in values[1:]:
-                    w = v.split('/')
-                    face.append(int(w[0]))
-                    if len(w) >= 2 and len(w[1]) > 0:
-                        texcoords.append(int(w[1]))
-                    else:
-                        texcoords.append(0)
-                    if len(w) >= 3 and len(w[2]) > 0:
-                        norms.append(int(w[2]))
-                    else:
-                        norms.append(0)
-                # self.faces.append((face, norms, texcoords, material))
                 self.faces.append(line)
 
 
@@ -228,8 +196,7 @@ class FFD(object):
                     if 0 <= j + m < self.cp_num_y:
                         for n in range(4):
                             if 0 <= k + n < self.cp_num_z:
-                                result += self.B(l, u) * self.B(m, v) * self.B(n, w) * \
-                                          self.control_points[i + l][j + m][k + n]
+                                result = result + self.B(l, u) * self.B(m, v) * self.B(n, w) * self.control_points[i + l][j + m][k + n]
         return result
 
     def changed_reset(self):
