@@ -123,9 +123,23 @@ class SimpleView(QtWidgets.QMainWindow):
 
     def save_obj(self):
         filename, ok = QFileDialog.getSaveFileName(self, 'Save .OBJ', '')
-        if ok:
-            new_vertices = None #How to get new vertices?
-            self.model.ffd.save_obj(filename,new_vertices)
+        # if ok:
+        #     new_vertices = None #How to get new vertices?
+        #     self.model.ffd.save_obj(filename,new_vertices)
+        f = open(filename, 'w')
+        vertices = self.model.data.GetPoints()
+        num_of_vertices = vertices.GetNumberOfPoints()
+        for i in range(num_of_vertices):
+            x,y,z = vertices.GetPoint(i)
+            f.write('v '+str(x)+' '+str(y)+' '+str(z)+' '+str(x)+' '+str(y)+' '+str(z)+'\n')
+        num_of_faces = self.model.data.GetNumberOfCells()
+        for i in range(num_of_faces):
+            x = self.model.data.GetCell(i).GetPointIds().GetId(0)
+            y = self.model.data.GetCell(i).GetPointIds().GetId(1)
+            z = self.model.data.GetCell(i).GetPointIds().GetId(2)
+            f.write('f '+str(x)+' '+str(y)+' '+str(z)+'\n')
+        f.close()
+        print("Done Save OBJ")
         return
 
     def save_ffd(self):
