@@ -1,5 +1,7 @@
 # 3D-Free-Form-Deformation
 
+这是我们在数据可视化课程的期末project，项目成员包括[何占魁](https://github.com/AaronHeee)，[冉诗菡](https://github.com/Rshcaroline)和[王艺楷](https://github.com/Wang-Yikai)。
+
 ### 开发环境：
 
 系统环境：Windows 10
@@ -150,6 +152,8 @@ class SimpleView(QtWidgets.QMainWindow):
 	  """读入.obj文件槽函数"""
 	  """后槽函数均结构类似，在此略过"""
 ```
+
+关于project的更详细介绍请参考[这里](https://github.com/Wang-Yikai/3D-Free-Form-Deformation/blob/master/report/report.md)。
 
 ### 致谢：
 
