@@ -128,7 +128,6 @@ class VtkModel(object):
         self.data_color = color_on_points(self.data_color, read_color_from_ffd(self.filename))
         self.COLORED = False
 
-        COLOR = True
         # 如果需要着色的话
         if COLOR :
             self.color()
@@ -250,7 +249,7 @@ class VtkModel(object):
             x1, y1, z1 = self.spherelist[i][j][k].GetCenter()
 
             # 只对发生改变的球体进行计算 如果球体的位置发生改变 即该控制点被拖动
-            if x1!=x0 and y1!=y0 and z1!=z0:
+            if x1!=x0 or y1!=y0 or z1!=z0:
                 print('Before location', x0, y0, z0)
                 print("New location", x1, y1, z1)
                 # 将更新后的坐标点传给ffd算法保存下来

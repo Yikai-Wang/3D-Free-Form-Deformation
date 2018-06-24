@@ -88,11 +88,11 @@ class SimpleView(QtWidgets.QMainWindow):
     def load_obj(self):
         """导入 .obj文件"""
         filename, ok = QFileDialog.getOpenFileName(self, 'Load .OBJ', '')
-        # if ok:
-        self.filename = filename
-        self.initVTK()
-        self.showAll()
-        print("Done Load OBJ")
+        if ok:
+            self.filename = filename
+            self.initVTK()
+            self.showAll()
+            print("Done Load OBJ")
         # return
 
     def load_image(self):
@@ -107,60 +107,61 @@ class SimpleView(QtWidgets.QMainWindow):
         """ 导入 ffd 文件，用self.model.sphereQt函数依次设置点位移 """
 
         filename, ok = QFileDialog.getOpenFileName(self, 'Load .FFD', '')
+        if ok:
 
-        self.model.ffd.load_cp(filename)
-        for x in range(len(self.model.ffd.control_points)):
-            for y in range(len(self.model.ffd.control_points[x])):
-                for z in range(len(self.model.ffd.control_points[x][y])):
-                    x_loc_new, y_loc_new, z_loc_new = self.model.ffd.new_control_points_location[
-                        x][y][z]
-                    x_loc_old, y_loc_old, z_loc_old = self.model.ffd.control_points_location[
-                        x][y][z]
-                    print(1)
-                    if (x_loc_old != x_loc_new) or (y_loc_old != y_loc_new) or (z_loc_old != z_loc_new):
-                        print(2)
-                        self.model.sphereQt(
-                            (x, y, z), self.model.ffd.new_control_points_location[x][y][z])
+            self.model.ffd.load_cp(filename)
+            for x in range(len(self.model.ffd.control_points)):
+                for y in range(len(self.model.ffd.control_points[x])):
+                    for z in range(len(self.model.ffd.control_points[x][y])):
+                        x_loc_new, y_loc_new, z_loc_new = self.model.ffd.new_control_points_location[
+                            x][y][z]
+                        x_loc_old, y_loc_old, z_loc_old = self.model.ffd.control_points_location[
+                            x][y][z]
+                        print(1)
+                        if (x_loc_old != x_loc_new) or (y_loc_old != y_loc_new) or (z_loc_old != z_loc_new):
+                            print(2)
+                            self.model.sphereQt(
+                                (x, y, z), self.model.ffd.new_control_points_location[x][y][z])
 
-        print("Done Load FFD")
+            print("Done Load FFD")
         return
 
     def save_obj(self):
         """保存 .obj文件"""
         filename, ok = QFileDialog.getSaveFileName(self, 'Save .OBJ', '')
-        # if ok:
-        f = open(filename, 'w')
-        vertices = self.model.data.GetPoints()
-        pointdata = self.model.data.GetPointData().GetScalars()
-        num_of_vertices = vertices.GetNumberOfPoints()
-        for i in range(num_of_vertices):
-            x, y, z = vertices.GetPoint(i)
-            f.write('v '+str(x)+' '+str(y)+' '+str(z)+' ')
-            if pointdata.GetNumberOfTuples() > 0:
-                r, g, b = pointdata.GetTuple3(i)
-                f.write(str(r/255)+' '+str(g/255)+' '+str(b/255)+'\n')
-            else:
+        if ok:
+            f = open(filename, 'w')
+            vertices = self.model.data.GetPoints()
+            pointdata = self.model.data.GetPointData().GetScalars()
+            num_of_vertices = vertices.GetNumberOfPoints()
+            for i in range(num_of_vertices):
+                x, y, z = vertices.GetPoint(i)
+                f.write('v '+str(x)+' '+str(y)+' '+str(z)+' ')
+                if pointdata.GetNumberOfTuples() > 0:
+                    r, g, b = pointdata.GetTuple3(i)
+                    f.write(str(r/255)+' '+str(g/255)+' '+str(b/255)+'\n')
+                else:
+                    f.write('\n')
+            num_of_faces = self.model.data.GetNumberOfCells()
+            for i in range(num_of_faces):
+                f.write('f')
+                for j in range(self.model.data.GetCell(i).GetNumberOfPoints()):
+                    f.write(
+                        ' ' + str(self.model.data.GetCell(i).GetPointIds().GetId(j)+1))
                 f.write('\n')
-        num_of_faces = self.model.data.GetNumberOfCells()
-        for i in range(num_of_faces):
-            f.write('f')
-            for j in range(self.model.data.GetCell(i).GetNumberOfPoints()):
-                f.write(
-                    ' ' + str(self.model.data.GetCell(i).GetPointIds().GetId(j)+1))
-            f.write('\n')
-        f.close()
-        print("Done Save OBJ")
-        return
+            f.close()
+            print("Done Save OBJ")
+            return
 
     def save_ffd(self):
         """保存 .ffd文件"""
         filename, ok = QFileDialog.getSaveFileName(self, 'Save .FFD', '')
         #filename= QFileDialog.getSaveFileName(self, 'Save .FFD', '')
         # print(filename)
-        # if ok:
-        self.model.ffd.save_cp(filename)
-        print("Done Save FFD")
-        return
+        if ok:
+            self.model.ffd.save_cp(filename)
+            print("Done Save FFD")
+            return
 
     def slot_color(self):
         """ 上色功能槽函数 """
