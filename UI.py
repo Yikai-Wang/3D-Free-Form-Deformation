@@ -10,8 +10,7 @@ import gc
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        #MainWindow.resize(1024, 800)
-        MainWindow.resize(600,400)
+        MainWindow.resize(1024, 800)
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         self.gridlayout = QtWidgets.QGridLayout(self.centralWidget)
         self.vtkWidget = QVTKRenderWindowInteractor(self.centralWidget)
@@ -26,7 +25,7 @@ class SimpleView(QtWidgets.QMainWindow):
         self.createActions()
         self.createMenus()
         #self.initUI()
-        self.filename = "zxh-ape.obj"
+        self.filename = "face.obj"
         self.initVTK()
         self.showAll()
 
@@ -96,36 +95,49 @@ class SimpleView(QtWidgets.QMainWindow):
     def load_ffd(self):
         filename, ok = QFileDialog.getOpenFileName(self, 'Load .FFD', '')
         #if ok:
-        self.model.ffd.load_cp(filename)
-        self.model.points=self.model.data.GetPoints()
-        for (u, v, w) in self.model.ffd.object_points.keys():
-            for i in range(-2,2):
-                for j in range(-2,2):
-                    for k in range(-2,2):
-                        if 0<=u+i<self.model.ffd.cp_num_x and 0<=v+j<self.model.ffd.cp_num_y and 0<=w+k<self.model.ffd.cp_num_z:
-                            for (id_index,x,y,z) in self.model.ffd.object_points[(u+i,v+j,w+k)]:
-                                tmp = self.model.ffd.T_local([x,y,z])
-                                self.model.points.SetPoint(id_index,tuple([x+tmp[0],y+tmp[1],z+tmp[2]]))
-        self.model.ffd.changed_reset()
-        #self.model.drawControlPoints()
-        mapper = vtk.vtkPolyDataMapper()
-        mapper.SetInputData(self.model.data)
+        # self.model.ffd.load_cp(filename)
+        # self.model.points=self.model.data.GetPoints()
+        # for (u, v, w) in self.model.ffd.object_points.keys():
+        #     for i in range(-2,2):
+        #         for j in range(-2,2):
+        #             for k in range(-2,2):
+        #                 if 0<=u+i<self.model.ffd.cp_num_x and 0<=v+j<self.model.ffd.cp_num_y and 0<=w+k<self.model.ffd.cp_num_z:
+        #                     for (id_index,x,y,z) in self.model.ffd.object_points[(u+i,v+j,w+k)]:
+        #                         tmp = self.model.ffd.T_local([x,y,z])
+        #                         self.model.points.SetPoint(id_index,tuple([x+tmp[0],y+tmp[1],z+tmp[2]]))
+        # self.model.ffd.changed_reset()
+        # #self.model.drawControlPoints()
+        # mapper = vtk.vtkPolyDataMapper()
+        # mapper.SetInputData(self.model.data)
 
-        # 去掉原始的人脸
-        self.model.ren.RemoveActor(self.model.actor)
-        # 添加更改后的新的人脸
-        self.model.actor = vtk.vtkActor()
-        self.model.actor.SetMapper(mapper)
-        self.model.ren.AddActor(self.model.actor)
+        # # 去掉原始的人脸
+        # self.model.ren.RemoveActor(self.model.actor)
+        # # 添加更改后的新的人脸
+        # self.model.actor = vtk.vtkActor()
+        # self.model.actor.SetMapper(mapper)
+        # self.model.ren.AddActor(self.model.actor)
+
+        self.model.ffd.load_cp(filename)
+        for x in range(len(self.model.ffd.control_points)):
+            for y in range(len(self.model.ffd.control_points[x])):
+                for z in range(len(self.model.ffd.control_points[x][y])):
+                    x_loc_new, y_loc_new, z_loc_new = self.model.ffd.new_control_points_location[x][y][z]
+                    x_loc_old, y_loc_old, z_loc_old =  self.model.xyz2realworld(x,y,z)
+                    print(1)
+                    if (x_loc_old != x_loc_new) or (y_loc_old != y_loc_new) or (z_loc_old != z_loc_new):
+                            print(2)
+                            self.model.sphereQt((x,y,z), self.model.ffd.new_control_points_location[x][y][z])
+
 
         print("Done Load FFD")
         return
 
     def save_obj(self):
         filename, ok = QFileDialog.getSaveFileName(self, 'Save .OBJ', '')
-        if ok:
-            new_vertices = None #How to get new vertices?
-            self.model.ffd.save_obj(filename,new_vertices)
+        self.writer = vtk.vtkOBJExporter()
+        self.writer.SetFilePrefix(filename+"\cells")
+        self.writer.SetInput(self.ui.vtkWidget.GetRenderWindow())
+        self.writer.Write()
         return
 
     def save_ffd(self):

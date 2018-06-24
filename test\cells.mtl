@@ -1,0 +1,5084 @@
+# wavefront mtl file written by the visualization toolkit
+
+newmtl mtl1
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl43868
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl43966
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl44064
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl44162
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl44260
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl44358
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl44456
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl44554
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl44652
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl44750
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl44848
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl44946
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl45044
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl45142
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl45240
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl45338
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl45436
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl45534
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl45632
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl45730
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl45828
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl45926
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl46024
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl46122
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl46220
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl46318
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl46416
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl46514
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl46612
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl46710
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl46808
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl46906
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl47004
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl47102
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl47200
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl47298
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl47396
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl47494
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl47592
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl47690
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl47788
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl47886
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl47984
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl48082
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl48180
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl48278
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl48376
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl48474
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl48572
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl48670
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl48768
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl48866
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl48964
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl49062
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl49160
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl49258
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl49356
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl49454
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl49552
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl49650
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl49748
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl49846
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl49944
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl50042
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl50140
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl50238
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl50336
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl50434
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl50532
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl50630
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl50728
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl50826
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl50924
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl51022
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl51120
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl51218
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl51316
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl51414
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl51512
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl51610
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl51708
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl51806
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl51904
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl52002
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl52100
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl52198
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl52296
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl52394
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl52492
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl52590
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl52688
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl52786
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl52884
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl52982
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl53080
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl53178
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl53276
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl53374
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl53472
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl53570
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl53668
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl53766
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl53864
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl53962
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl54060
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl54158
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl54256
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl54354
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl54452
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl54550
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl54648
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl54746
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl54844
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl54942
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl55040
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl55138
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl55236
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl55334
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl55432
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl55530
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl55628
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl55726
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl55824
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl55922
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56020
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56118
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56120
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56122
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56124
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56126
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56128
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56130
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56132
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56134
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56136
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56138
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56140
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56142
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56144
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56146
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56148
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56150
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56152
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56154
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56156
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56158
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56160
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56162
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56164
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56166
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56168
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56170
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56172
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56174
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56176
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56178
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56180
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56182
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56184
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56186
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56188
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56190
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56192
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56194
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56196
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56198
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56200
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56202
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56204
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56206
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56208
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56210
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56212
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56214
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56216
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56218
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56220
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56222
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56224
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56226
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56228
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56230
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56232
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56234
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56236
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56238
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56240
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56242
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56244
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56246
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56248
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56250
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56252
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56254
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56256
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56258
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56260
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56262
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56264
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56266
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56268
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56270
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56272
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56274
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56276
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56278
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56280
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56282
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56284
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56286
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56288
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56290
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56292
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56294
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56296
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56298
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56300
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56302
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56304
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56306
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56308
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56310
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56312
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56314
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56316
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56318
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56320
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56322
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56324
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56326
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56328
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56330
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56332
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56334
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56336
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56338
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56340
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56342
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56344
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56346
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56348
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56350
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56352
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56354
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56356
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56358
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56360
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56362
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56364
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56366
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56368
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56370
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56372
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56374
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56376
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56378
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56380
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56382
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56384
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56386
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56388
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56390
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56392
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56394
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56396
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56398
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56400
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56402
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56404
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56406
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56408
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56410
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56412
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56414
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56416
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56418
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56420
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56422
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56424
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56426
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56428
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56430
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56432
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56434
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56436
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56438
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56440
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56442
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56444
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56446
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56448
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56450
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56452
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56454
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56456
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56458
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56460
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56462
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56464
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56466
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56468
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56470
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56472
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56474
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56476
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56478
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56480
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56482
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56484
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56486
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56488
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56490
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56492
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56494
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56496
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56498
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56500
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56502
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56504
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56506
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56508
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56510
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56512
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56514
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56516
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56518
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56520
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56522
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56524
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56526
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56528
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56530
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56532
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56534
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56536
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56538
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56540
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56542
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56544
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56546
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56548
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56550
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56552
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56554
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56556
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56558
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56560
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56562
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56564
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56566
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56568
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56570
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56572
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56574
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56576
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56578
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56580
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56582
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56584
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56586
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56588
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56590
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56592
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56594
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56596
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56598
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56600
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56602
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56604
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56606
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56608
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56610
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56612
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56614
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56616
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56618
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56620
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56622
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56624
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56626
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56628
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56630
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56632
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56634
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56636
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56638
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56640
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56642
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56644
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56646
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56648
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56650
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56652
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56654
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56656
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56658
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56660
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56662
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56664
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56666
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56668
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56670
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56672
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56674
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56676
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56678
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56680
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56682
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56684
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56686
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56688
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56690
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56692
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56694
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56696
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56698
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56700
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56702
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56704
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56706
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56708
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56710
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56712
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56714
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56716
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56718
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56720
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56722
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56724
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56726
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56728
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56730
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56732
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56734
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56736
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56738
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56740
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56742
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56744
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56746
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56748
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56750
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56752
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56754
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56756
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56758
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56760
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56762
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56764
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56766
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56768
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56770
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56772
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56774
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56776
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56778
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56780
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56782
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56784
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56786
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56788
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56790
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56792
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56794
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56796
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56798
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56800
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56802
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56804
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56806
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56808
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56810
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56812
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56814
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56816
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56818
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56820
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56822
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56824
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56826
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56828
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56830
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56832
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56834
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56836
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56838
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56840
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56842
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56844
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56846
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56848
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56850
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56852
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56854
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56856
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56858
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56860
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56862
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56864
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56866
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56868
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56870
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56872
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56874
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56876
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56878
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56880
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56882
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56884
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56886
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56888
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56890
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56892
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56894
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56896
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56898
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56900
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56902
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56904
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56906
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56908
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56910
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56912
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56914
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56916
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56918
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56920
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56922
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56924
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56926
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56928
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56930
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56932
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56934
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56936
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56938
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56940
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56942
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56944
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56946
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56948
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56950
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56952
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56954
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56956
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56958
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56960
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56962
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56964
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56966
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56968
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56970
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56972
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56974
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56976
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56978
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56980
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56982
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56984
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56986
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56988
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56990
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56992
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56994
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56996
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl56998
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57000
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57002
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57004
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57006
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57008
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57010
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57012
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57014
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57016
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57018
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57020
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57022
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57024
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57026
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57028
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57030
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57032
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57034
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57036
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57038
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57040
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57042
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57044
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57046
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57048
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57050
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57052
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57054
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57056
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57058
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57060
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57062
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57064
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57066
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57068
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57070
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57072
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57074
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57076
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57078
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57080
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57082
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57084
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57086
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57088
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57090
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57092
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57094
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57096
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57098
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57100
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57102
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57104
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57106
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57108
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57110
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57112
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57114
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57116
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57118
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57120
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57122
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57124
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57126
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57128
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57130
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57132
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57134
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57136
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57138
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57140
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57142
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57144
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57146
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57148
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57150
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57152
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57154
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57156
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57158
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57160
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57162
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57164
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57166
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57168
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57170
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57172
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57174
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57176
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57178
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57180
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57182
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57184
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57186
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57188
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57190
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57192
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57194
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57196
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57198
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57200
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57202
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57204
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57206
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57208
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57210
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57212
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57214
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57216
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57218
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57220
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57222
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57224
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57226
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57228
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57230
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57232
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57234
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57236
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57238
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57240
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57242
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57244
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57246
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57248
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57250
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57252
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57254
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57256
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57258
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57260
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57262
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57264
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57266
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57268
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57270
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57272
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57274
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57276
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57278
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57280
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57282
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57284
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57286
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57288
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57290
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57292
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57294
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57296
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57298
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57300
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57302
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57304
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57306
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57308
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57310
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57312
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57314
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+
+newmtl mtl57316
+Ka 0 1 0
+Kd 0 1 0
+Ks 0 1 0
+Ns 1
+Tr 1 illum 3
+

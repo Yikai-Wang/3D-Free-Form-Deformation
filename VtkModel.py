@@ -66,6 +66,8 @@ class VtkModel(object):
             n.append((i, j, k+1))
         return n
 
+
+
     def loadOBJ(self):
         """
         初始化，加载模型.obj格式文件
