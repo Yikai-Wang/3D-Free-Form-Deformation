@@ -8,7 +8,7 @@
 
 开发语言： python>=3.5
 
-软件包：Numpy>=1.13.0,  TensorFlow >= 1.4
+软件包：numpy>=1.13.0, tensorFlow >= 1.4, vtk==8.1.0, qt==5.9.6 
 
 ### 示例：
 
