@@ -226,7 +226,7 @@ $$
    ​
 
 
-   
+
 
 #### 三、代码结构：
 
@@ -234,7 +234,7 @@ $$
 
 ```python
 class obj_reader(object):
-    def __init__(self, filename, swapyz=False):
+    def __init__(self, filename):
         """加载obj文件"""
 class FFD(object)
     def __init__(self, num_x, num_y, num_z, object_file,object_points):
