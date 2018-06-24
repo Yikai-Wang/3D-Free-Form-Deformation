@@ -267,8 +267,8 @@ class VtkModel(object):
                     # 输出通过方法SetInputConnection()设置为vtkPolyDataMapper对象的输入
                     self.mapperlist[i][j][k][count].SetInputConnection(self.sourcelist[i][j][k][count].GetOutputPort())
                     # 去掉之前的 邻居结点之前和该位置发生移动的控制点 生成的旧线
-                    # nei_of_nei = self.neighbor(inei, jnei, knei).index((i, j, k))
-                    # self.ren.RemoveActor(self.actorlist[inei][jnei][knei][nei_of_nei])
+                    nei_of_nei = self.neighbor(inei, jnei, knei).index((i, j, k))
+                    self.ren.RemoveActor(self.actorlist[inei][jnei][knei][nei_of_nei])
                     # 设置定义几何信息的mapper到这个actor里
                     # 在里 mapper的类型是vtkPolyDataMapper 也就是用类似点、线、多边形(Polygons)等几何图元进行渲染的
                     self.actorlist[i][j][k][count].SetMapper(self.mapperlist[i][j][k][count])
