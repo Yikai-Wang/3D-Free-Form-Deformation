@@ -153,7 +153,7 @@ class SimpleView(QtWidgets.QMainWindow):
 	  """后槽函数均结构类似，在此略过"""
 ```
 
-关于project的更详细介绍请参考[这里](https://github.com/Wang-Yikai/3D-Free-Form-Deformation/blob/master/report/report.md)。
+关于project的更详细介绍请参考[这里](https://github.com/Wang-Yikai/3D-Free-Form-Deformation/blob/master/report.pdf)。
 
 ### 致谢：
 
