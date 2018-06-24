@@ -89,10 +89,14 @@ class VtkModel(object):
         mapper = vtk.vtkPolyDataMapper()
         mapper.SetInputData(self.data)
 
-        self.ren.RemoveActor(self.actor)
-        self.actor = vtk.vtkActor()
-        self.actor.SetMapper(mapper)
-        self.ren.AddActor(self.actor)
+        try:
+            self.ren.RemoveActor(self.actor)
+            self.actor = vtk.vtkActor()
+            self.actor.SetMapper(mapper)
+            self.ren.AddActor(self.actor)
+        except:
+            pass
+
     
     def resize(self, RESIZE):
         """
@@ -124,6 +128,7 @@ class VtkModel(object):
         self.data_color = color_on_points(self.data_color, read_color_from_ffd(self.filename))
         self.COLORED = False
 
+        COLOR = True
         # 如果需要着色的话
         if COLOR :
             self.color()
@@ -276,7 +281,7 @@ class VtkModel(object):
                     # ref: http://vtk.1045678.n5.nabble.com/vtkActor-GetProperty-gt-SetColor-not-working-for-me-td5722373.html
                     self.actorlist[i][j][k][count].GetMapper().ScalarVisibilityOff()
                     # 设置Actor的颜色 该方法用RGB值来设置一个Actor的红、绿、蓝分量的颜色 每个分量的取值范围从0到1
-                    self.actorlist[i][j][k][count].GetProperty().SetColor(1.0, 0, 0)
+                    self.actorlist[i][j][k][count].GetProperty().SetColor(0, 1.0, 0)
                     # 使用renderer的方法AddActor()把要渲染的actor加入到renderer中去。
                     self.ren.AddActor(self.actorlist[i][j][k][count])
                     count += 1

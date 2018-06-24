@@ -58,6 +58,7 @@ class FFD(object):
                   for z in range(self.cp_num_z)]
                  for y in range(self.cp_num_y)]
                 for x in range(self.cp_num_x)]
+            self.control_points_location_initial = copy.deepcopy(self.control_points_location)            
             try:
                 del self.object_points
                 # gc.collect()
@@ -79,6 +80,8 @@ class FFD(object):
 
     def load_cp(self, path):
         f = open(path, 'r')
+        self.new_control_points = copy.deepcopy(self.control_points)
+        self.new_control_points_location = copy.deepcopy(self.control_points_location_initial)
         begin = False
         while True:
             line = f.readline()
@@ -119,14 +122,13 @@ class FFD(object):
                 else:
                     line = line.split('\t')[:-1]
                     for z in range(len(line)):
-                        self.control_points[x][y][z] = np.array([np.float(i) for i in line[z].split(' ')])
-                        #self.control_points[x][y][z] = np.array([np.float(i) for i in line[z].split(' ')]）
+                        self.new_control_points[x][y][z] = np.array([np.float(i) for i in line[z].split(' ')])
+                        # self.control_points[x][y][z] = np.array([np.float(i) for i in line[z].split(' ')]）
                     y += 1
-        for x in range(len(self.control_points)):
-            for y in range(len(self.control_points[x])):
-                for z in range(len(self.control_points[x][y])):
-                    if self.control_points[x][y][z][0] != 0 or self.control_points_location[x][y][z][1] != 0 or self.control_points_location[x][y][z][2] != 0:
-                        self.changed[(x,y,z)]=self.control_points[x][y][z]+self.control_points_location[x][y][z]
+        for x in range(len(self.new_control_points)):
+            for y in range(len(self.new_control_points[x])):
+                for z in range(len(self.new_control_points[x][y])):
+                    self.new_control_points_location[x][y][z] += self.new_control_points[x][y][z]
         return
 
     def save_obj(self,filename,new_vertices):
