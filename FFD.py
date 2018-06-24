@@ -125,7 +125,7 @@ class FFD(object):
         for x in range(len(self.control_points)):
             for y in range(len(self.control_points[x])):
                 for z in range(len(self.control_points[x][y])):
-                    if self.control_points[x][y][z][0] != 0 or self.control_points_location[x][y][z][1] != 0 or self.control_points_location[x][y][z][2] != 0:
+                    if self.control_points[x][y][z][0] != 0 or self.control_points[x][y][z][1] != 0 or self.control_points[x][y][z][2] != 0:
                         self.changed[(x,y,z)]=self.control_points[x][y][z]+self.control_points_location[x][y][z]
         return
 
